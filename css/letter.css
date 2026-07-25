@@ -77,13 +77,12 @@ z-index:3;
     top:50%;
     width:600px;
     max-width:90%;
-    min-height:70vh;
-    max-height:85vh;
+    max-height:75vh;
 
     background:linear-gradient(to bottom, #fffdf8 0%, #fff9f0 100%);
     color:#2a2a2a;
 
-    padding:50px;
+    padding:40px;
     border-radius:8px;
 
     box-shadow:
@@ -96,7 +95,7 @@ z-index:3;
     opacity:0;
 
     transition:1s;
-    overflow:auto;
+    overflow-y:auto;
 
     z-index:20;
 
@@ -127,8 +126,8 @@ z-index:3;
 .paper h1{
 
 font-family:Caveat;
-font-size:56px;
-margin-bottom:30px;
+font-size:48px;
+margin-bottom:25px;
 color:#ff4f9a;
 text-shadow:2px 2px 4px rgba(255,79,154,.2);
 
@@ -136,9 +135,9 @@ text-shadow:2px 2px 4px rgba(255,79,154,.2);
 
 .paper p{
 
-font-size:24px;
+font-size:20px;
 
-line-height:2;
+line-height:1.8;
 
 white-space:pre-wrap;
 
