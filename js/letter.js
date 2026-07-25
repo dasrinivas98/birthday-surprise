@@ -24,7 +24,13 @@ Forever Yours ❤️`;
 
 let index = 0;
 
-envelope.onclick = () => {
+let opened = false;
+
+const openEnvelope = () => {
+
+    if(opened) return;
+
+    opened = true;
 
     envelope.style.pointerEvents = "none";
     envelope.classList.add("open");
@@ -46,6 +52,30 @@ envelope.onclick = () => {
     }, 1200);
 
 };
+
+// The entire envelope, including its flap and wax seal, opens the letter.
+envelope.addEventListener("click", openEnvelope);
+
+envelope.addEventListener("keydown", (event) => {
+
+    if(event.key === "Enter" || event.key === " "){
+
+        event.preventDefault();
+
+        openEnvelope();
+
+    }
+
+});
+
+// Touch support for mobile
+envelope.addEventListener("touchstart", (e) => {
+
+    e.preventDefault();
+
+    openEnvelope();
+
+});
 
 function typeLetter(){
 
