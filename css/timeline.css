@@ -124,6 +124,14 @@ margin-bottom:20px;
 
 font-size:35px;
 
+background:linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+background-clip:text;
+
 }
 
 .content p{

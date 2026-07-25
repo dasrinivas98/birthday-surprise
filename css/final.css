@@ -1,8 +1,17 @@
 /* ===========================
-   FINAL PAGE
+   FINAL PAGE - ENHANCED
 =========================== */
 
-body{min-height:100vh;min-height:100dvh;}
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+body{
+    cursor:none;
+    min-height:100vh;
+    min-height:100dvh;
+    color:white;
+    font-family:Poppins,sans-serif;
+    background:linear-gradient(135deg, #0a192f 0%, #172a45 50%, #0a192f 100%);
+}
 
 /* Background Canvas */
 
@@ -16,6 +25,36 @@ body{min-height:100vh;min-height:100dvh;}
 
     z-index:0;
     pointer-events:none;
+
+    opacity:0.6;
+
+}
+
+/* Animated stars background */
+
+.stars{
+
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,.8), transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,.6), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,.9), transparent),
+        radial-gradient(2px 2px at 130px 80px, rgba(255,255,255,.7), transparent),
+        radial-gradient(1px 1px at 160px 120px, rgba(255,255,255,.8), transparent);
+    background-repeat:repeat;
+    background-size:200px 200px;
+    animation:twinkle 4s ease-in-out infinite;
+    z-index:1;
+    pointer-events:none;
+
+}
+
+@keyframes twinkle{
+
+0%,100%{opacity:.3;}
+
+50%{opacity:.8;}
 
 }
 
@@ -40,19 +79,77 @@ body{min-height:100vh;min-height:100dvh;}
 
 }
 
-.title{
+/* Heart icon animation */
 
-    font-size:clamp(3rem,7vw,5.5rem);
+.heart-icon{
 
-    color:#ff6ca8;
+    font-size:80px;
 
-    text-shadow:
-        0 0 15px rgba(255,90,150,.9),
-        0 0 40px rgba(255,90,150,.6);
+    animation:heartBeat 1.5s ease-in-out infinite;
 
-    animation:heartbeat 2s infinite;
+    margin-bottom:20px;
+
+    filter:drop-shadow(0 0 20px rgba(255,215,0,.8));
 
 }
+
+@keyframes heartBeat{
+
+0%,100%{transform:scale(1);}
+
+25%{transform:scale(1.15);}
+
+50%{transform:scale(1);}
+
+75%{transform:scale(1.1);}
+
+}
+
+/* Title with gold gradient */
+
+.title{
+
+    font-size:clamp(3rem,8vw,6rem);
+
+    font-family:'Dancing Script',cursive;
+
+    font-weight:400;
+
+    background:linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+    background-clip:text;
+
+    text-shadow:none;
+
+    filter:drop-shadow(0 0 30px rgba(255,215,0,.6));
+
+    animation:glow 3s ease-in-out infinite;
+
+    margin-bottom:20px;
+
+}
+
+@keyframes glow{
+
+0%,100%{
+
+filter:drop-shadow(0 0 20px rgba(255,215,0,.5));
+
+}
+
+50%{
+
+filter:drop-shadow(0 0 40px rgba(255,215,0,.8));
+
+}
+
+}
+
+/* Subtitle with better readability */
 
 .subtitle{
 
@@ -60,13 +157,59 @@ body{min-height:100vh;min-height:100dvh;}
 
     max-width:850px;
 
-    line-height:1.8;
+    line-height:1.9;
+
+    font-size:1.15rem;
+
+    color:#f0e0f0;
+
+    text-shadow:0 2px 4px rgba(0,0,0,.3);
+
+    font-weight:300;
+
+}
+
+/* Message box with glassmorphism */
+
+.message-box{
+
+    margin-top:40px;
+
+    padding:30px 40px;
+
+    max-width:700px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:20px;
+
+    border:2px solid rgba(255,255,255,.15);
+
+    box-shadow:
+        0 8px 32px rgba(0,0,0,.3),
+        inset 0 1px 0 rgba(255,255,255,.1);
+
+    animation:fadeInScale 1s ease-out;
+
+}
+
+.message-text{
 
     font-size:1.2rem;
 
-    color:#ffe7f1;
+    line-height:1.8;
+
+    color:#ffffff;
+
+    font-style:italic;
+
+    text-shadow:0 1px 2px rgba(0,0,0,.2);
 
 }
+
+/* Buttons with enhanced styles */
 
 .buttons{
 
@@ -74,7 +217,7 @@ body{min-height:100vh;min-height:100dvh;}
 
     gap:25px;
 
-    margin-top:55px;
+    margin-top:50px;
 
     flex-wrap:wrap;
 
@@ -82,9 +225,9 @@ body{min-height:100vh;min-height:100dvh;}
 
 }
 
-.buttons button{
+.btn-primary{
 
-    padding:18px 36px;
+    padding:20px 45px;
 
     border:none;
 
@@ -92,40 +235,144 @@ body{min-height:100vh;min-height:100dvh;}
 
     font-size:18px;
 
+    font-weight:600;
+
     color:white;
 
-    background:linear-gradient(135deg,#ff4f8f,#ff236c);
+    background:linear-gradient(135deg,#ffd700,#ffed4e);
 
     box-shadow:
-        0 10px 30px rgba(255,80,140,.35);
+        0 10px 30px rgba(255,215,0,.4),
+        0 0 20px rgba(255,215,0,.2);
 
-    transition:.35s;
+    transition:all .3s;
 
     cursor:none;
 
+    position:relative;
+
+    overflow:hidden;
+
 }
 
-.buttons button:hover{
+.btn-primary::before{
 
-    transform:translateY(-5px) scale(1.05);
+content:'';
+
+position:absolute;
+
+top:0;
+
+left:-100%;
+
+width:100%;
+
+height:100%;
+
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);
+
+transition:left .5s;
+
+}
+
+.btn-primary:hover::before{
+
+left:100%;
+
+}
+
+.btn-primary:hover{
+
+transform:translateY(-5px) scale(1.05);
+
+box-shadow:
+    0 15px 45px rgba(255,215,0,.6),
+    0 0 30px rgba(255,215,0,.4);
+
+}
+
+.btn-secondary{
+
+    padding:20px 45px;
+
+    border:none;
+
+    border-radius:50px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:white;
+
+    background:linear-gradient(135deg,#64ffda,#48d1cc);
 
     box-shadow:
-        0 15px 45px rgba(255,80,140,.55);
+        0 10px 30px rgba(100,255,218,.4),
+        0 0 20px rgba(100,255,218,.2);
+
+    transition:all .3s;
+
+    cursor:none;
+
+    position:relative;
+
+    overflow:hidden;
 
 }
 
-@keyframes heartbeat{
+.btn-secondary::before{
 
-    0%,100%{
+content:'';
 
-        transform:scale(1);
+position:absolute;
 
-    }
+top:0;
 
-    50%{
+left:-100%;
 
-        transform:scale(1.08);
+width:100%;
 
-    }
+height:100%;
+
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);
+
+transition:left .5s;
+
+}
+
+.btn-secondary:hover::before{
+
+left:100%;
+
+}
+
+.btn-secondary:hover{
+
+transform:translateY(-5px) scale(1.05);
+
+box-shadow:
+    0 15px 45px rgba(100,255,218,.6),
+    0 0 30px rgba(100,255,218,.4);
+
+}
+
+@keyframes fadeInScale{
+
+from{
+
+opacity:0;
+
+transform:scale(0.9);
+
+}
+
+to{
+
+opacity:1;
+
+transform:scale(1);
+
+}
 
 }

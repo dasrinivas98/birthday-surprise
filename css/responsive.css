@@ -1,3 +1,4 @@
+/* Mobile styles */
 @media(max-width:768px){
 
 /* Base mobile fixes */
@@ -243,6 +244,224 @@ gap:15px;
 width:100%;
 
 max-width:300px;
+
+}
+
+}
+
+/* Tablet screens */
+@media(min-width:769px) and (max-width:1024px){
+
+/* Typography */
+
+.title{
+
+font-size:65px;
+
+}
+
+.subtitle{
+
+font-size:16px;
+
+max-width:500px;
+
+}
+
+/* Countdown */
+
+.countdown div{
+
+width:90px;
+
+height:90px;
+
+}
+
+.countdown span{
+
+font-size:28px;
+
+}
+
+/* Music button */
+
+#musicBtn{
+
+width:52px;
+
+height:52px;
+
+font-size:22px;
+
+}
+
+/* Game page */
+
+#gameArea{
+
+height:60vh;
+
+}
+
+.heart{
+
+font-size:32px;
+
+}
+
+/* PIN page */
+
+.card{
+
+max-width:420px;
+
+padding:35px 25px;
+
+}
+
+/* Cake page */
+
+.cake{
+
+width:260px;
+
+height:260px;
+
+}
+
+/* Letter page */
+
+.paper{
+
+max-width:600px;
+
+padding:45px;
+
+}
+
+.paper h1{
+
+font-size:52px;
+
+}
+
+.paper p{
+
+font-size:22px;
+
+}
+
+/* Gallery page */
+
+.polaroid{
+
+width:85%;
+
+}
+
+/* Timeline page */
+
+.timeline{
+
+max-width:700px;
+
+}
+
+}
+
+/* Desktop and laptop screens */
+@media(min-width:1025px){
+
+/* Ensure content is centered and fits nicely */
+
+body{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+/* Game page - center the game area */
+
+#gameArea{
+
+    max-width:1200px;
+
+    margin:0 auto;
+
+}
+
+/* Letter page - ensure paper fits on screen */
+
+.paper{
+
+    max-height:80vh;
+
+    max-width:700px;
+
+}
+
+/* PIN page - keep card centered */
+
+.card{
+
+    max-width:450px;
+
+}
+
+/* Gift page - scale gift for larger screens */
+
+.gift{
+
+    transform:scale(1.1);
+
+}
+
+/* Timeline page - limit width for readability */
+
+.timeline{
+
+    max-width:900px;
+
+    margin:0 auto;
+
+}
+
+/* Gallery page - grid layout for desktop */
+
+.gallery{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:30px;
+
+    max-width:1200px;
+
+    margin:0 auto;
+
+    padding:20px;
+
+}
+
+.polaroid{
+
+    width:100%;
+
+}
+
+/* Final page - center content */
+
+.container{
+
+    max-width:800px;
+
+    margin:0 auto;
 
 }
 

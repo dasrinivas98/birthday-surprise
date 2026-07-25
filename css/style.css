@@ -14,7 +14,7 @@ body{
 
     color:white;
 
-    background:#090915;
+    background:linear-gradient(135deg, #0a192f 0%, #172a45 50%, #0a192f 100%);
 
     min-height:100vh;
 
@@ -84,13 +84,21 @@ main{
 
 .title{
 
-    font-family:"Great Vibes",cursive;
+    font-family:'Dancing Script',cursive;
 
     font-size:80px;
 
     margin:20px 0;
 
-    color:#ffd7ec;
+    background:linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+    background-clip:text;
+
+    filter:drop-shadow(0 0 30px rgba(255,215,0,.5));
 }
 
 .subtitle{
@@ -162,18 +170,20 @@ main{
 
     font-size:18px;
 
-    background:#ff4f9a;
+    background:linear-gradient(135deg,#ffd700,#ffed4e);
 
     color:white;
 
     transition:.35s;
+
+    box-shadow:0 10px 30px rgba(255,215,0,.4);
 }
 
 #beginBtn:hover{
 
     transform:scale(1.08);
 
-    background:#ff267f;
+    box-shadow:0 15px 40px rgba(255,215,0,.6);
 }
 
 #musicBtn{

@@ -50,6 +50,14 @@ font-size:50px;
 
 margin-bottom:15px;
 
+background:linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+background-clip:text;
+
 }
 
 .gallery{
@@ -112,7 +120,7 @@ display:block;
 
 .polaroid h3{
 
-font-family:Caveat;
+font-family:Poppins,sans-serif;
 
 font-size:34px;
 
