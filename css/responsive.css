@@ -1,14 +1,20 @@
 @media(max-width:768px){
 
+/* Typography */
+
 .title{
 
 font-size:55px;
 
 }
 
-body{
-    cursor:none;
+.subtitle{
+
+font-size:15px;
+
 }
+
+/* Countdown */
 
 .countdown{
 
@@ -26,9 +32,175 @@ height:80px;
 
 }
 
-.subtitle{
+/* Music button - ensure it's tappable */
 
-font-size:15px;
+#musicBtn{
+
+width:48px;
+
+height:48px;
+
+font-size:20px;
+
+top:15px;
+
+right:15px;
+
+}
+
+/* Game page */
+
+#gameArea{
+
+height:55vh;
+
+}
+
+.heart{
+
+font-size:28px;
+
+}
+
+#score{
+
+font-size:22px;
+
+margin-bottom:20px;
+
+}
+
+header{
+
+padding:25px 15px;
+
+}
+
+/* PIN page */
+
+.card{
+
+width:90%;
+
+max-width:400px;
+
+padding:30px 20px;
+
+}
+
+.pin-dots{
+
+gap:15px;
+
+}
+
+.pin-dots span{
+
+width:18px;
+
+height:18px;
+
+}
+
+.keypad button{
+
+height:55px;
+
+font-size:20px;
+
+}
+
+/* Cake page */
+
+.cake{
+
+width:220px;
+
+height:220px;
+
+}
+
+h1{
+
+font-size:24px;
+
+margin-bottom:20px;
+
+}
+
+button{
+
+padding:14px 28px;
+
+font-size:16px;
+
+}
+
+/* Gift page */
+
+.container{
+
+padding:20px;
+
+}
+
+/* Timeline page */
+
+.timeline{
+
+padding:0 15px;
+
+}
+
+.memory{
+
+margin-bottom:30px;
+
+}
+
+/* Gallery page */
+
+.polaroid{
+
+width:90%;
+
+margin:0 auto 20px;
+
+}
+
+/* Letter page */
+
+.paper{
+
+padding:20px;
+
+width:90%;
+
+max-width:500px;
+
+}
+
+/* Final page */
+
+.container{
+
+padding:20px;
+
+}
+
+.buttons{
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+.buttons button{
+
+width:100%;
+
+max-width:300px;
 
 }
 
