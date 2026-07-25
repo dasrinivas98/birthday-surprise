@@ -38,6 +38,7 @@ if (music && musicBtn) {
 
         if (music.paused) {
 
+            music.volume = 1;
             music.play();
             musicBtn.innerHTML = "🔊";
             localStorage.setItem(MUSIC_KEY, "true");
