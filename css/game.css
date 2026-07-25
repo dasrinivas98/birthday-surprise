@@ -50,29 +50,31 @@ font-weight:600;
 
 #gameArea{
 
-position:relative;
+    position:relative;
 
-width:100vw;
+    width:100vw;
 
-height:70vh;
+    height:60vh;
 
-overflow:hidden;
+    overflow:hidden;
 
 }
 
 .heart{
 
-position:absolute;
+    position:absolute;
 
-font-size:38px;
+    font-size:32px;
 
-cursor:pointer;
+    cursor:pointer;
 
-user-select:none;
+    user-select:none;
 
-animation:float 5s ease-in-out infinite;
+    animation:float 5s ease-in-out infinite;
 
-transition:.25s;
+    transition:.25s;
+
+    z-index:10;
 
 }
 

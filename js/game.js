@@ -10,17 +10,18 @@ const TOTAL=10;
 
 for(let i=0;i<TOTAL;i++){
 
-const heart=document.createElement("div");
+    const heart=document.createElement("div");
 
-heart.className="heart";
+    heart.className="heart";
 
-heart.innerHTML="❤️";
+    heart.innerHTML="❤️";
 
-heart.style.left=Math.random()*90+"vw";
+    // Position within game area bounds (0-85% width, 0-80% height)
+    heart.style.left=Math.random()*85+"%";
 
-heart.style.top=Math.random()*60+"vh";
+    heart.style.top=Math.random()*80+"%";
 
-heart.style.animationDelay=Math.random()*5+"s";
+    heart.style.animationDelay=Math.random()*5+"s";
 
 heart.onclick = () => {
 
