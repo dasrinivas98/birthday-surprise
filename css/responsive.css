@@ -20,7 +20,19 @@ body{
 
     overflow-x:hidden;
 
+    overflow-y:auto !important;
+
     -webkit-overflow-scrolling:touch;
+
+    cursor:auto !important;
+
+}
+
+/* Remove cursor:none on mobile */
+
+body *{
+
+    cursor:auto !important;
 
 }
 
