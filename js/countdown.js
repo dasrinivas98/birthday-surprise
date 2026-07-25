@@ -17,8 +17,8 @@ function getBirthdayDate() {
     if (stored) {
         return new Date(stored);
     }
-    // Default: August 18, 2026 (change this to your desired date)
-    const defaultDate = new Date(2026, 7, 18, 0, 0, 0);
+    // Default: August 1, 2026 at 12:00 AM (change this to your desired date)
+    const defaultDate = new Date(2026, 7, 1, 0, 0, 0);
     localStorage.setItem(STORAGE_KEY, defaultDate.toISOString());
     return defaultDate;
 }
