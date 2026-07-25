@@ -2,15 +2,7 @@
    FINAL PAGE
 =========================== */
 
-body{
-
-    margin:0;
-    overflow:hidden;
-    background:linear-gradient(180deg,#1b001f,#090010);
-    color:#fff;
-    position:relative;
-
-}
+body{min-height:100vh;min-height:100dvh;}
 
 /* Background Canvas */
 

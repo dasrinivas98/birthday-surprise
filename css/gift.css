@@ -10,7 +10,9 @@ box-sizing:border-box;
 
 body{
 
-height:100vh;
+min-height:100vh;
+
+min-height:100dvh;
 
 display:flex;
 
@@ -18,13 +20,12 @@ justify-content:center;
 
 align-items:center;
 
-overflow:hidden;
-
 font-family:Poppins,sans-serif;
 
 background:#080814;
 
 color:white;
+
 }
 
 .background{
@@ -38,6 +39,7 @@ background:
 radial-gradient(circle,#8b4cff33 0%,transparent 70%),
 
 linear-gradient(#0a0a18,#000);
+
 }
 
 .container{
@@ -45,6 +47,7 @@ linear-gradient(#0a0a18,#000);
 text-align:center;
 
 z-index:10;
+
 }
 
 h1{
@@ -52,6 +55,7 @@ h1{
 margin-bottom:10px;
 
 font-size:40px;
+
 }
 
 p{
@@ -59,6 +63,7 @@ p{
 opacity:.8;
 
 margin-bottom:50px;
+
 }
 
 .gift{
@@ -76,6 +81,7 @@ cursor:pointer;
 transition:1s;
 
 animation:float 3s infinite ease-in-out;
+
 }
 
 .box{
@@ -91,6 +97,7 @@ height:120px;
 background:#ff4f9a;
 
 border-radius:0 0 12px 12px;
+
 }
 
 .lid{
@@ -108,6 +115,7 @@ background:#ff71af;
 border-radius:8px;
 
 transition:1s;
+
 }
 
 .ribbon.vertical{
@@ -121,6 +129,7 @@ width:30px;
 height:180px;
 
 background:white;
+
 }
 
 .ribbon.horizontal{
@@ -134,11 +143,13 @@ width:220px;
 height:25px;
 
 background:white;
+
 }
 
 .gift:hover{
 
 transform:scale(1.05);
+
 }
 
 .open .lid{
@@ -148,6 +159,7 @@ transform:
 translateY(-90px)
 
 rotate(-12deg);
+
 }
 
 #message{
@@ -159,11 +171,13 @@ font-size:30px;
 opacity:0;
 
 transition:1s;
+
 }
 
 .show{
 
 opacity:1 !important;
+
 }
 
 @keyframes float{

@@ -10,15 +10,16 @@ body{
 
 body{
 
-    overflow:hidden;
-
     font-family:Poppins,sans-serif;
 
     color:white;
 
     background:#090915;
 
-    height:100vh;
+    min-height:100vh;
+
+    min-height:100dvh;
+
 }
 
 #stars{
@@ -55,7 +56,9 @@ body{
 
 main{
 
-    height:100vh;
+    min-height:100vh;
+
+    min-height:100dvh;
 
     display:flex;
 
@@ -198,4 +201,6 @@ main{
     font-size:22px;
 
     backdrop-filter:blur(10px);
+
+    z-index:99999;
 }
