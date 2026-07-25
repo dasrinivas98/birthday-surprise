@@ -1,0 +1,139 @@
+/* ===========================
+   FINAL PAGE
+=========================== */
+
+body{
+
+    margin:0;
+    overflow:hidden;
+    background:linear-gradient(180deg,#1b001f,#090010);
+    color:#fff;
+    position:relative;
+
+}
+
+/* Background Canvas */
+
+#heartsCanvas{
+
+    position:fixed;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    z-index:0;
+    pointer-events:none;
+
+}
+
+/* Main Content */
+
+.container{
+
+    position:relative;
+
+    z-index:5;
+
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    padding:40px;
+
+    text-align:center;
+
+}
+
+.title{
+
+    font-size:clamp(3rem,7vw,5.5rem);
+
+    color:#ff6ca8;
+
+    text-shadow:
+        0 0 15px rgba(255,90,150,.9),
+        0 0 40px rgba(255,90,150,.6);
+
+    animation:heartbeat 2s infinite;
+
+}
+
+.subtitle{
+
+    margin-top:30px;
+
+    max-width:850px;
+
+    line-height:1.8;
+
+    font-size:1.2rem;
+
+    color:#ffe7f1;
+
+}
+
+.buttons{
+
+    display:flex;
+
+    gap:25px;
+
+    margin-top:55px;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+}
+
+.buttons button{
+
+    padding:18px 36px;
+
+    border:none;
+
+    border-radius:50px;
+
+    font-size:18px;
+
+    color:white;
+
+    background:linear-gradient(135deg,#ff4f8f,#ff236c);
+
+    box-shadow:
+        0 10px 30px rgba(255,80,140,.35);
+
+    transition:.35s;
+
+    cursor:none;
+
+}
+
+.buttons button:hover{
+
+    transform:translateY(-5px) scale(1.05);
+
+    box-shadow:
+        0 15px 45px rgba(255,80,140,.55);
+
+}
+
+@keyframes heartbeat{
+
+    0%,100%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.08);
+
+    }
+
+}

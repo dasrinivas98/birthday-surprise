@@ -1,0 +1,201 @@
+body{
+    cursor:none;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    overflow:hidden;
+
+    font-family:Poppins,sans-serif;
+
+    color:white;
+
+    background:#090915;
+
+    height:100vh;
+}
+
+#stars{
+
+    position:fixed;
+
+    width:100%;
+
+    height:100%;
+
+    top:0;
+
+    left:0;
+
+    z-index:-2;
+}
+
+.overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(circle at top,#6b2a88 0%,transparent 50%),
+
+    linear-gradient(#090915,#000);
+
+    opacity:.85;
+
+    z-index:-1;
+}
+
+main{
+
+    height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:20px;
+}
+
+.smallTitle{
+
+    letter-spacing:4px;
+
+    font-size:15px;
+
+    opacity:.8;
+}
+
+.title{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:80px;
+
+    margin:20px 0;
+
+    color:#ffd7ec;
+}
+
+.subtitle{
+
+    max-width:650px;
+
+    line-height:1.8;
+
+    opacity:.9;
+
+    margin-bottom:50px;
+}
+
+.countdown{
+
+    display:flex;
+
+    gap:25px;
+
+    margin-bottom:60px;
+}
+
+.countdown div{
+
+    width:100px;
+
+    height:100px;
+
+    backdrop-filter:blur(20px);
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.08);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border:1px solid rgba(255,255,255,.15);
+}
+
+.countdown span{
+
+    font-size:34px;
+
+    font-weight:bold;
+}
+
+.countdown small{
+
+    margin-top:5px;
+
+    opacity:.8;
+}
+
+#beginBtn{
+
+    padding:18px 40px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    background:#ff4f9a;
+
+    color:white;
+
+    transition:.35s;
+}
+
+#beginBtn:hover{
+
+    transform:scale(1.08);
+
+    background:#ff267f;
+}
+
+#musicBtn{
+
+    position:fixed;
+
+    top:20px;
+
+    right:20px;
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    border:none;
+
+    cursor:pointer;
+
+    background:rgba(255,255,255,.12);
+
+    color:white;
+
+    font-size:22px;
+
+    backdrop-filter:blur(10px);
+}

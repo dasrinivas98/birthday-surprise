@@ -1,0 +1,100 @@
+#cursor{
+
+    position:fixed;
+
+    left:0;
+    top:0;
+
+    width:30px;
+    height:30px;
+
+    pointer-events:none;
+
+    z-index:2147483647;
+
+    transform:translate(-50%,-50%);
+
+}
+
+#cursor::before{
+
+    content:"❤️";
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    font-size:32px;
+
+    filter:
+        drop-shadow(0 0 8px #ff4f9a)
+        drop-shadow(0 0 18px #ff4f9a);
+
+}
+
+.spark{
+
+    position:fixed;
+
+    pointer-events:none;
+
+    font-size:12px;
+
+    z-index:999998;
+
+    animation:spark .8s linear forwards;
+
+}
+
+@keyframes spark{
+
+    from{
+
+        opacity:1;
+
+        transform:
+        translateY(0)
+        scale(1);
+
+    }
+
+    to{
+
+        opacity:0;
+
+        transform:
+        translateY(-45px)
+        scale(.3);
+
+    }
+
+}
+
+.cursorGrow{
+
+    transform:translate(-50%,-50%) scale(1.45);
+
+}
+
+button,
+a,
+input,
+textarea,
+select,
+.gift,
+.polaroid,
+.heart,
+.memory,
+.envelope,
+#nextBtn,
+#continue,
+#blow,
+#finish,
+#unlock{
+
+    cursor: none !important;
+
+}
