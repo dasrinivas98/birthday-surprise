@@ -2,7 +2,7 @@
 const STORAGE_KEY = "birthdayDate";
 
 function getBirthdayDate() {
-    // Check URL parameter first (e.g., ?date=2026-08-18)
+    // Check URL parameter first (e.g., ?date=2026-08-01)
     const urlParams = new URLSearchParams(window.location.search);
     const urlDate = urlParams.get('date');
     if (urlDate) {
@@ -13,11 +13,7 @@ function getBirthdayDate() {
         }
     }
     
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored) {
-        return new Date(stored);
-    }
-    // Default: August 1, 2026 at 12:00 AM (change this to your desired date)
+    // Force update to new default date (August 1, 2026)
     const defaultDate = new Date(2026, 7, 1, 0, 0, 0);
     localStorage.setItem(STORAGE_KEY, defaultDate.toISOString());
     return defaultDate;
