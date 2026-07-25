@@ -52,9 +52,22 @@ if (music && musicBtn) {
 
     });
 
-    // Save time when leaving page
+    // Smooth transition when leaving page
     window.addEventListener("beforeunload", () => {
         localStorage.setItem(TIME_KEY, music.currentTime);
+        localStorage.setItem(MUSIC_KEY, music.paused ? "false" : "true");
     });
+
+    // Fade in on page load to avoid crackling
+    music.volume = 0;
+    if (!music.paused) {
+        const fadeIn = setInterval(() => {
+            if (music.volume < 1) {
+                music.volume = Math.min(music.volume + 0.1, 1);
+            } else {
+                clearInterval(fadeIn);
+            }
+        }, 50);
+    }
 
 }
