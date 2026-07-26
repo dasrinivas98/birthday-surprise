@@ -12,9 +12,12 @@ body{
 
     font-family:Poppins,sans-serif;
 
-    color:white;
+    color:#5d3550;
 
-    background:linear-gradient(135deg, #0a192f 0%, #172a45 50%, #0a192f 100%);
+    background:
+        radial-gradient(circle at top left, rgba(255,93,145,0.18) 0%, transparent 30%),
+        radial-gradient(circle at bottom right, rgba(240,184,75,0.16) 0%, transparent 24%),
+        linear-gradient(135deg, #fff8fc 0%, #f7e9f1 55%, #f1dfe8 100%);
 
     min-height:100vh;
 
@@ -45,11 +48,11 @@ body{
 
     background:
 
-    radial-gradient(circle at top,#6b2a88 0%,transparent 50%),
+    radial-gradient(circle at top, rgba(255,93,145,0.16) 0%, transparent 50%),
 
-    linear-gradient(#090915,#000);
+    linear-gradient(135deg, rgba(255,248,252,0.95), rgba(247,233,241,0.95));
 
-    opacity:.85;
+    opacity:.9;
 
     z-index:-1;
 }
@@ -90,7 +93,7 @@ main{
 
     margin:20px 0;
 
-    background:linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+    background:linear-gradient(135deg, #ff5d91 0%, #f0b84b 50%, #ff5d91 100%);
 
     -webkit-background-clip:text;
 
@@ -98,7 +101,7 @@ main{
 
     background-clip:text;
 
-    filter:drop-shadow(0 0 30px rgba(255,215,0,.5));
+    filter:drop-shadow(0 0 18px rgba(255,93,145,.18));
 }
 
 .subtitle{
@@ -131,7 +134,7 @@ main{
 
     border-radius:20px;
 
-    background:rgba(255,255,255,.08);
+    background:rgba(255,255,255,.75);
 
     display:flex;
 
@@ -141,7 +144,8 @@ main{
 
     align-items:center;
 
-    border:1px solid rgba(255,255,255,.15);
+    border:1px solid rgba(255,93,145,.12);
+    box-shadow:0 10px 24px rgba(93,53,80,.08);
 }
 
 .countdown span{
@@ -170,20 +174,20 @@ main{
 
     font-size:18px;
 
-    background:linear-gradient(135deg,#ffd700,#ffed4e);
+    background:linear-gradient(135deg,#ff5d91,#f0b84b);
 
     color:white;
 
     transition:.35s;
 
-    box-shadow:0 10px 30px rgba(255,215,0,.4);
+    box-shadow:0 10px 24px rgba(255,93,145,.18);
 }
 
 #beginBtn:hover{
 
     transform:scale(1.08);
 
-    box-shadow:0 15px 40px rgba(255,215,0,.6);
+    box-shadow:0 15px 32px rgba(255,93,145,.24);
 }
 
 #musicBtn{
@@ -204,9 +208,9 @@ main{
 
     cursor:pointer;
 
-    background:rgba(255,255,255,.12);
+    background:rgba(255,255,255,.78);
 
-    color:white;
+    color:#5d3550;
 
     font-size:22px;
 

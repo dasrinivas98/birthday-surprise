@@ -10,6 +10,29 @@
 
 }
 
+:root{
+    --theme-bg:#fff8fc;
+    --theme-bg-deep:#f7e9f1;
+    --theme-accent:#ff5d91;
+    --theme-accent-2:#f2a0c3;
+    --theme-gold:#f0b84b;
+    --theme-text:#5d3550;
+    --theme-muted:#8a627a;
+    --theme-panel:rgba(255,255,255,0.8);
+}
+
+body{
+    background:
+        radial-gradient(circle at top left, rgba(255,93,145,0.18) 0%, transparent 30%),
+        radial-gradient(circle at bottom right, rgba(240,184,75,0.18) 0%, transparent 26%),
+        linear-gradient(135deg, var(--theme-bg) 0%, var(--theme-bg-deep) 55%, #f1dfe8 100%);
+    color:var(--theme-text);
+}
+
+h1, h2, h3, h4, h5, h6, p, button, span, div{
+    color:inherit;
+}
+
 .emoji {
     display: inline-block !important;
     font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Android Emoji', 'Segoe UI Symbol', sans-serif !important;
@@ -51,11 +74,11 @@ textarea{
 
     transform:translateX(-50%) translateY(100px);
 
-    background:rgba(255,255,255,.12);
+    background:rgba(255,255,255,.75);
 
     backdrop-filter:blur(20px);
 
-    color:white;
+    color:var(--theme-text);
 
     padding:15px 30px;
 
@@ -99,9 +122,9 @@ textarea{
 
     cursor:pointer;
 
-    background:rgba(255,255,255,.12);
+    background:rgba(255,255,255,.75);
 
-    color:white;
+    color:var(--theme-text);
 
     font-size:22px;
 
@@ -117,7 +140,7 @@ textarea{
 
     transform:scale(1.1);
 
-    background:rgba(255,255,255,.2);
+    background:rgba(255,255,255,.9);
 
 }
 

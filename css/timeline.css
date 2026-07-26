@@ -16,9 +16,12 @@ body{
 
 font-family:Poppins,sans-serif;
 
-background:#090915;
+background:
+    radial-gradient(circle at top left, rgba(255,93,145,0.18) 0%, transparent 30%),
+    radial-gradient(circle at bottom right, rgba(240,184,75,0.16) 0%, transparent 24%),
+    linear-gradient(135deg, #fff8fc 0%, #f7e9f1 55%, #f1dfe8 100%);
 
-color:white;
+color:#5d3550;
 
 overflow-x:hidden;
 
@@ -32,9 +35,9 @@ inset:0;
 
 background:
 
-radial-gradient(circle,#ff4f9a20 0%,transparent 70%),
+radial-gradient(circle, rgba(255,93,145,0.14) 0%, transparent 70%),
 
-linear-gradient(#090915,#000);
+linear-gradient(135deg, rgba(255,248,252,0.95), rgba(247,233,241,0.95));
 
 z-index:-1;
 
@@ -108,7 +111,7 @@ width:100%;
 
 border-radius:20px;
 
-box-shadow:0 20px 60px rgba(0,0,0,.5);
+box-shadow:0 16px 34px rgba(93,53,80,.12);
 
 }
 
@@ -124,7 +127,7 @@ margin-bottom:20px;
 
 font-size:35px;
 
-background:linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+background:linear-gradient(135deg, #ff5d91 0%, #f0b84b 50%, #ff5d91 100%);
 
 -webkit-background-clip:text;
 
@@ -164,7 +167,7 @@ padding:18px 45px;
 
 border:none;
 
-background:#ff4f9a;
+background:linear-gradient(135deg,#ff5d91,#f0b84b);
 
 color:white;
 

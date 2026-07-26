@@ -1,6 +1,7 @@
 const game = document.getElementById("gameArea");
 const score = document.getElementById("score");
 const done = document.getElementById("completed");
+const hint = document.getElementById("gameHint");
 const TOTAL = 10;
 let found = 0;
 const hearts = [];
@@ -58,6 +59,7 @@ function createHeart() {
     setTimeout(() => heart.remove(), 500);
 
     if (found === TOTAL) {
+      hint.classList.add("hidden");
       setTimeout(() => {
         playConfettiSound();
         confetti({

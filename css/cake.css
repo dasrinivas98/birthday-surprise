@@ -11,8 +11,12 @@ box-sizing:border-box;
 body{
     min-height:100vh;
     min-height:100dvh;
-    color:white;
+    color:#5d3550;
     font-family:Poppins,sans-serif;
+    background:
+        radial-gradient(circle at top left, rgba(255,93,145,0.18) 0%, transparent 30%),
+        radial-gradient(circle at bottom right, rgba(240,184,75,0.16) 0%, transparent 24%),
+        linear-gradient(135deg, #fff8fc 0%, #f7e9f1 55%, #f1dfe8 100%);
 }
 
 /* Desktop centering */
@@ -30,8 +34,8 @@ body{
 position:fixed;
 inset:0;
 background:
-radial-gradient(circle,#ff4f9a22 0%,transparent 70%),
-linear-gradient(#090915,#000);
+radial-gradient(circle, rgba(255,93,145,0.14) 0%, transparent 70%),
+linear-gradient(135deg, rgba(255,248,252,0.95), rgba(247,233,241,0.95));
 z-index:-1;
 
 }
@@ -44,7 +48,7 @@ font-family:'Dancing Script',cursive;
 
 font-size:60px;
 
-background:linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
+background:linear-gradient(135deg, #ff5d91 0%, #f0b84b 50%, #ff5d91 100%);
 
 -webkit-background-clip:text;
 
@@ -52,7 +56,7 @@ background:linear-gradient(135deg, #ffd700 0%, #ffed4e 50%, #ffd700 100%);
 
 background-clip:text;
 
-filter:drop-shadow(0 0 20px rgba(255,215,0,.5));
+filter:drop-shadow(0 0 14px rgba(255,93,145,.16));
 
 }
 
