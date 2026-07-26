@@ -1,6 +1,76 @@
 /* ==========================================
    PREMIUM WEBSITE CONTROLS
 ========================================== */
+
+function playConfettiSound() {
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtx) return;
+
+    if (!window._confettiAudioCtx) {
+        window._confettiAudioCtx = new AudioCtx();
+    }
+
+    const ctx = window._confettiAudioCtx;
+    if (ctx.state === "suspended" && typeof ctx.resume === "function") {
+        ctx.resume().catch(() => {});
+    }
+
+    const now = ctx.currentTime;
+    const variant = Math.random();
+
+    function playBurst(frequency, duration, volume) {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = "triangle";
+        osc.frequency.setValueAtTime(frequency, now);
+        osc.frequency.exponentialRampToValueAtTime(frequency * 0.45, now + duration);
+
+        gain.gain.setValueAtTime(0.0001, now);
+        gain.gain.exponentialRampToValueAtTime(volume, now + 0.015);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+        osc.connect(gain).connect(ctx.destination);
+        osc.start(now);
+        osc.stop(now + duration);
+    }
+
+    function playNoise(duration, volume) {
+        const noiseBuffer = ctx.createBuffer(1, ctx.sampleRate * duration, ctx.sampleRate);
+        const noiseData = noiseBuffer.getChannelData(0);
+        for (let i = 0; i < noiseData.length; i += 1) {
+            const envelope = 1 - i / noiseData.length;
+            noiseData[i] = (Math.random() * 2 - 1) * envelope * envelope;
+        }
+
+        const noiseSource = ctx.createBufferSource();
+        noiseSource.buffer = noiseBuffer;
+        const noiseGain = ctx.createGain();
+
+        noiseGain.gain.setValueAtTime(volume, now);
+        noiseGain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+        noiseSource.connect(noiseGain).connect(ctx.destination);
+        noiseSource.start(now);
+        noiseSource.stop(now + duration);
+    }
+
+    if (variant < 0.4) {
+        // Soft confetti pop
+        playBurst(780, 0.16, 0.18);
+        playNoise(0.16, 0.11);
+    } else if (variant < 0.7) {
+        // Sparkle + shimmer
+        playBurst(920, 0.14, 0.14);
+        playBurst(640, 0.12, 0.08);
+        playNoise(0.12, 0.08);
+    } else {
+        // Gentle celebration snap
+        playBurst(620, 0.18, 0.16);
+        playNoise(0.18, 0.09);
+    }
+}
+
 window.addEventListener("load",()=>{
 
     document.body.classList.add("loaded");

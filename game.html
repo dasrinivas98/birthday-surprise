@@ -38,11 +38,11 @@
 
 <header>
 
-<h1>❤️ Find Our Hidden Hearts ❤️</h1>
+<h1><span class="emoji">❤️</span> Catch the Moving Hearts <span class="emoji">❤️</span></h1>
 
 <p>
 
-Find all 10 hearts to unlock something special.
+Move your cursor over a heart and click to catch it. They won't run away.
 
 </p>
 
@@ -55,12 +55,12 @@ Find all 10 hearts to unlock something special.
 </div>
 
 <div id="gameArea">
-
+  <div id="gameHint">Move your cursor over a heart and click to catch it. They won't run away.</div>
 </div>
 
 <div id="completed">
 
-<h2>❤️ You Found Them All ❤️</h2>
+<h2><span class="emoji">❤️</span> You Found Them All <span class="emoji">❤️</span></h2>
 
 <p>
 
@@ -70,13 +70,15 @@ One last surprise is waiting...
 
 <button id="unlock">
 
-Unlock Love Letter 💌
+Unlock Love Letter <span class="emoji">💌</span>
 
 </button>
 
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<script src="js/common.js"></script>
 
 <script src="js/game.js"></script>
 
@@ -85,8 +87,6 @@ Unlock Love Letter 💌
 <div id="cursor"></div>
 
 <script src="js/cursor.js"></script>
-
-<script src="js/common.js"></script>
 
 </body>
 

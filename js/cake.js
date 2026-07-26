@@ -23,6 +23,7 @@ function blowCandle(index) {
     extinguished++;
 
     // Small confetti burst per candle (reduced)
+    playConfettiSound();
     const rect = flames[index].getBoundingClientRect();
     confetti({
         particleCount: 10,
@@ -41,6 +42,7 @@ function blowCandle(index) {
 
 function allOut() {
     // Final confetti (reduced)
+    playConfettiSound();
     confetti({
         particleCount: 300,
         spread: 130
