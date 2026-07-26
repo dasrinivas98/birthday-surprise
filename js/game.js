@@ -63,11 +63,11 @@ function createHeart() {
       setTimeout(() => {
         playConfettiSound();
         confetti({
-          particleCount: 300,
-          spread: 180,
-          origin: { y: 0.6 },
+          particleCount: 260,
+          spread: 160,
+          origin: { y: 0.5 },
         });
-        done.style.display = "block";
+        done.classList.add("show");
       }, 700);
     }
   });
@@ -112,5 +112,8 @@ for (let i = 0; i < TOTAL; i += 1) {
 updateHearts();
 
 document.getElementById("unlock").onclick = () => {
-  window.location.href = "letter.html";
+  document.body.classList.add("page-transitioning");
+  setTimeout(() => {
+    window.location.href = "letter.html";
+  }, 250);
 };

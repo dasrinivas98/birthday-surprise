@@ -11,15 +11,19 @@ box-sizing:border-box;
 body{
 
 background:
-    radial-gradient(circle at top left, rgba(255,93,145,0.18) 0%, transparent 30%),
-    radial-gradient(circle at bottom right, rgba(240,184,75,0.16) 0%, transparent 24%),
-    linear-gradient(135deg, #fff8fc 0%, #f7e9f1 55%, #f1dfe8 100%);
+    linear-gradient(180deg, #c79d85 0%, #b68669 40%, #a36f50 100%),
+    repeating-linear-gradient(0deg, transparent, transparent 36px, rgba(255,255,255,.08) 36px, rgba(255,255,255,.08) 38px),
+    repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(255,255,255,.08) 1px, rgba(255,255,255,.08) 120px);
+
+background-blend-mode:multiply,normal;
 
 font-family:Poppins;
 
 color:#5d3550;
 
 overflow-x:hidden;
+
+padding-bottom:80px;
 
 }
 
@@ -31,9 +35,11 @@ inset:0;
 
 background:
 
-radial-gradient(circle, rgba(255,93,145,0.14) 0%, transparent 70%),
+linear-gradient(180deg, rgba(202,146,116,.94), rgba(188,124,99,.94)) 0 0 / cover,
 
-linear-gradient(135deg, rgba(255,248,252,0.95), rgba(247,233,241,0.95));
+repeating-linear-gradient(0deg, transparent, transparent 36px, rgba(255,255,255,.06) 36px, rgba(255,255,255,.06) 38px),
+
+repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(255,255,255,.08) 1px, rgba(255,255,255,.08) 120px);
 
 z-index:-1;
 
@@ -43,7 +49,7 @@ header{
 
 text-align:center;
 
-padding:70px 20px;
+padding:70px 20px 40px;
 
 }
 
@@ -63,75 +69,114 @@ background-clip:text;
 
 }
 
+header p{
+    font-size:17px;
+    opacity:.9;
+}
+
 .gallery{
 
-width:90%;
-
-max-width:1300px;
+width:min(92%, 1040px);
 
 margin:auto;
 
+position:relative;
+
+padding:28px 20px 70px;
+
+border-radius:24px;
+
+background:#eccec0;
+
+background-image:
+    repeating-linear-gradient(90deg, rgba(255,255,255,.15), rgba(255,255,255,.15) 1px, transparent 1px, transparent 120px),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.15), rgba(255,255,255,.15) 1px, transparent 1px, transparent 36px);
+
+background-blend-mode:screen;
+
+box-shadow:0 20px 45px rgba(93,53,80,.12);
+
+overflow:hidden;
+
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
 
-gap:50px;
-
-padding-bottom:100px;
+gap:30px;
 
 }
 
-.polaroid{
+.gallery .polaroid{
 
-background:rgba(255,255,255,.86);
+position:relative;
 
-padding:15px;
+background:#faf2ee;
+
+padding:10px 10px 18px;
 
 cursor:pointer;
 
-transition:.4s;
+transition:transform .35s ease, box-shadow .35s ease;
 
-box-shadow:0 12px 30px rgba(93,53,80,.12);
+box-shadow:0 18px 38px rgba(93,53,80,.16);
 
-}
+border-radius:18px;
 
-.polaroid:nth-child(odd){
-
-transform:rotate(-6deg);
+border:1px solid rgba(214,186,206,.7);
 
 }
 
-.polaroid:nth-child(even){
+.gallery .polaroid:nth-child(odd){
 
-transform:rotate(6deg);
+transform:rotate(-2deg);
 
-}
-
-.polaroid:hover{
-
-transform:scale(1.08) rotate(0deg);
+margin-top:10px;
 
 }
 
-.polaroid img{
+.gallery .polaroid:nth-child(even){
+
+transform:rotate(2deg);
+
+margin-top:26px;
+
+}
+
+.gallery .polaroid:hover{
+
+transform:translateY(-6px) rotate(0deg);
+
+box-shadow:0 22px 42px rgba(93,53,80,.2);
+
+}
+
+.gallery .polaroid img{
 
 width:100%;
 
 display:block;
 
+border-radius:16px;
+
+object-fit:cover;
+
+box-shadow:inset 0 0 0 1px rgba(255,255,255,.9);
+
 }
 
-.polaroid h3{
+.gallery .polaroid h3{
 
 font-family:Poppins,sans-serif;
 
-font-size:34px;
+font-size:15px;
 
 color:#5d3550;
 
 text-align:center;
 
-margin-top:12px;
+margin-top:14px;
+
+font-weight:600;
 
 }
 
@@ -141,7 +186,7 @@ position:fixed;
 
 inset:0;
 
-background:rgba(20,16,24,.7);
+background:rgba(20,16,24,.72);
 
 display:none;
 
@@ -153,21 +198,29 @@ flex-direction:column;
 
 z-index:999;
 
+padding:24px;
+
 }
 
 #preview{
 
-width:80%;
+width:min(82%, 540px);
 
-max-width:700px;
+max-width:540px;
 
 border-radius:20px;
+
+box-shadow:0 20px 45px rgba(0,0,0,.25);
 
 }
 
 #caption{
 
 margin-top:20px;
+
+color:#fff7fb;
+
+font-size:24px;
 
 }
 
@@ -183,11 +236,13 @@ font-size:50px;
 
 cursor:pointer;
 
+color:white;
+
 }
 
 .next{
 
-padding:80px;
+padding:40px 20px 0;
 
 text-align:center;
 
@@ -208,5 +263,7 @@ color:white;
 cursor:pointer;
 
 font-size:18px;
+
+box-shadow:0 12px 24px rgba(255,93,145,.2);
 
 }

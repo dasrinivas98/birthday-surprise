@@ -77,6 +77,23 @@ window.addEventListener("load",()=>{
 
 });
 
+document.addEventListener("click", (event) => {
+    const link = event.target.closest("a[href]");
+    if (!link) return;
+
+    const href = link.getAttribute("href");
+    if (!href || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:")) return;
+
+    const targetUrl = new URL(href, window.location.href);
+    if (targetUrl.origin !== window.location.origin) return;
+
+    event.preventDefault();
+    document.body.classList.add("page-transitioning");
+    setTimeout(() => {
+        window.location.href = targetUrl.href;
+    }, 220);
+});
+
 // Disable Back Button
 
 history.pushState(null, "", location.href);

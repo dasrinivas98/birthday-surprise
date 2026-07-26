@@ -11,14 +11,12 @@ beginBtn.addEventListener("click", () => {
 
     beginBtn.innerHTML = "Loading Your Surprise ❤️";
 
-    document.body.style.transition = "opacity 1s";
-
-    document.body.style.opacity = 0;
+    document.body.classList.add("page-transitioning");
 
     setTimeout(() => {
 
         window.location.href = "gift.html";
 
-    }, 1000);
+    }, 300);
 
 });

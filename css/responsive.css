@@ -59,14 +59,21 @@ flex-wrap:wrap;
 
 justify-content:center;
 
+gap:12px;
+
 }
 
 .countdown div{
 
-width:80px;
+width:76px;
 
-height:80px;
+height:76px;
 
+}
+
+.celebrationText{
+    font-size:13px;
+    margin-bottom:16px;
 }
 
 /* Music button - ensure it's tappable and centered */

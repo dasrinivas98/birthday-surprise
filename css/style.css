@@ -23,6 +23,20 @@ body{
 
     min-height:100dvh;
 
+    opacity:0;
+    transform:translateY(10px);
+    transition:opacity .7s ease, transform .7s ease;
+
+}
+
+body.loaded{
+    opacity:1;
+    transform:none;
+}
+
+body.page-transitioning{
+    opacity:0;
+    transform:translateY(12px);
 }
 
 #stars{
@@ -74,6 +88,29 @@ main{
     text-align:center;
 
     padding:20px;
+    animation:fadeUpIn .9s ease both;
+}
+
+@keyframes fadeUpIn{
+    from{opacity:0; transform:translateY(16px);} 
+    to{opacity:1; transform:none;}
+}
+
+.celebrationText{
+    min-height:24px;
+    margin:0 0 22px;
+    font-size:15px;
+    font-weight:600;
+    letter-spacing:.03em;
+    color:#8e5b72;
+    opacity:0;
+    transform:translateY(6px);
+    transition:.35s ease;
+}
+
+.celebrationText.show{
+    opacity:1;
+    transform:translateY(0);
 }
 
 .smallTitle{
@@ -188,6 +225,15 @@ main{
     transform:scale(1.08);
 
     box-shadow:0 15px 32px rgba(255,93,145,.24);
+}
+
+#beginBtn.is-ready{
+    animation:pulseGlow 1.5s ease-in-out infinite;
+}
+
+@keyframes pulseGlow{
+    0%,100%{box-shadow:0 10px 24px rgba(255,93,145,.18); transform:translateY(0);} 
+    50%{box-shadow:0 16px 36px rgba(240,184,75,.28); transform:translateY(-3px);} 
 }
 
 #musicBtn{

@@ -51,17 +51,30 @@ function updateCountdown() {
     document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
     document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
 
-    // Enable/disable begin button based on date
+    const celebrationMessage = document.getElementById("birthdayMessage");
     const beginBtn = document.getElementById("beginBtn");
+    const reached = isDateReached();
+
+    if (celebrationMessage) {
+        celebrationMessage.textContent = reached
+            ? "The day is here — your surprise is ready to open ✨"
+            : "A little countdown for a very special birthday 💕";
+        celebrationMessage.classList.toggle("show", reached);
+    }
+
     if (beginBtn) {
-        if (isDateReached()) {
+        if (reached) {
             beginBtn.disabled = false;
             beginBtn.style.opacity = "1";
             beginBtn.style.cursor = "pointer";
+            beginBtn.classList.add("is-ready");
+            beginBtn.innerHTML = "Open Your Surprise <span class=\"emoji\">✨</span>";
         } else {
             beginBtn.disabled = true;
-            beginBtn.style.opacity = "0.5";
+            beginBtn.style.opacity = "0.6";
             beginBtn.style.cursor = "not-allowed";
+            beginBtn.classList.remove("is-ready");
+            beginBtn.innerHTML = "Begin Your Surprise <span class=\"emoji\">❤️</span>";
         }
     }
 }

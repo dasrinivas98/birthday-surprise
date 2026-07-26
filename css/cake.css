@@ -116,6 +116,8 @@ bottom:0;
 
 background:#ffb3c7;
 
+z-index:0;
+
 }
 
 .middle{
@@ -128,6 +130,8 @@ bottom:90px;
 
 background:#ffc8d8;
 
+z-index:1;
+
 }
 
 .top{
@@ -139,6 +143,8 @@ height:55px;
 bottom:160px;
 
 background:#ffe0ea;
+
+z-index:2;
 
 }
 
@@ -543,6 +549,100 @@ button:not(#musicBtn){
     font-size:18px;
 
     cursor:pointer;
+
+}
+
+@media (max-width: 768px){
+
+    body{
+        padding:20px 16px 40px;
+    }
+
+    h1.cake-title{
+        font-size:34px;
+        line-height:1.2;
+        margin:12px 0 8px;
+        padding:0 8px;
+    }
+
+    .cake-container{
+        margin:16px auto 8px;
+        transform:scale(.92);
+        transform-origin:center center;
+    }
+
+    .cake{
+        width:220px;
+        height:220px;
+    }
+
+    .bottom{
+        width:188px;
+        height:70px;
+    }
+
+    .middle{
+        width:150px;
+        height:56px;
+        bottom:70px;
+    }
+
+    .top{
+        width:112px;
+        height:44px;
+        bottom:126px;
+    }
+
+    .candles{
+        bottom:176px;
+        gap:16px;
+    }
+
+    .candle{
+        width:12px;
+        height:44px;
+    }
+
+    .flame{
+        width:14px;
+        height:20px;
+        top:-18px;
+        left:-2px;
+    }
+
+    .blow-btn{
+        margin-top:20px;
+        padding:15px 28px;
+        font-size:16px;
+        width:min(100%, 280px);
+    }
+
+    .wish-container{
+        margin:24px auto 0;
+        padding:22px 18px;
+        max-width:100%;
+        border-radius:18px;
+    }
+
+    .wish-title{
+        font-size:28px;
+        margin-bottom:16px;
+    }
+
+    .wish-text{
+        font-size:16px;
+        line-height:1.7;
+        margin-bottom:20px;
+    }
+
+    .finish-btn{
+        padding:15px 28px;
+        font-size:16px;
+    }
+
+    button:not(#musicBtn){
+        margin-top:20px;
+    }
 
 }
 
