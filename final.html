@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/cursor.css">
-    <link rel="stylesheet" href="css/final.css">
+    <link rel="stylesheet" href="css/final.css?v=3">
     <link rel="stylesheet" href="css/common.css">
 
 </head>
@@ -30,6 +30,16 @@
     <canvas id="heartsCanvas"></canvas>
 
     <div class="stars"></div>
+
+    <div id="wishReveal" class="wish-reveal" aria-hidden="true">
+        <div class="wish-card" role="dialog" aria-modal="true" aria-labelledby="wishTitle">
+            <span class="wish-sparkle" aria-hidden="true">&#10024;</span>
+            <p class="wish-overline">A little promise for your new year</p>
+            <h2 id="wishTitle">May every wish find its way to you.</h2>
+            <p>And through every beautiful chapter ahead, I promise to be beside you—celebrating you, believing in you, and loving you even more.</p>
+            <button id="closeWishBtn" class="close-wish-btn" type="button">I’ll hold this close &#10084;</button>
+        </div>
+    </div>
 
     <div class="container">
 
@@ -54,6 +64,12 @@
             </p>
         </div>
 
+        <section class="wish-section" aria-label="Birthday wish">
+            <p class="wish-label">One more wish for your beautiful year ahead</p>
+            <button id="wishBtn" class="wish-btn" type="button">✨ Make a Birthday Wish</button>
+            <p id="wishMessage" class="wish-message" aria-live="polite">Close your eyes, make a wish, and let this moment be yours.</p>
+        </section>
+
         <div class="buttons">
 
             <button id="restartBtn" class="btn-primary">
@@ -70,7 +86,7 @@
 
     <div id="cursor"></div>
 
-    <script src="js/final.js"></script>
+    <script src="js/final.js?v=3"></script>
 
     <script src="js/music.js"></script>
 

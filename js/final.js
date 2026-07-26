@@ -1,5 +1,9 @@
 const restartBtn = document.getElementById("restartBtn");
 const downloadBtn = document.getElementById("downloadBtn");
+const wishBtn = document.getElementById("wishBtn");
+const wishMessage = document.getElementById("wishMessage");
+const wishReveal = document.getElementById("wishReveal");
+const closeWishBtn = document.getElementById("closeWishBtn");
 
 restartBtn.addEventListener("click", () => {
 
@@ -14,6 +18,48 @@ restartBtn.addEventListener("click", () => {
 });
 
 downloadBtn.addEventListener("click", createMemoryBook);
+
+wishBtn.addEventListener("click", () => {
+
+    if(wishBtn.disabled) return;
+
+    wishBtn.disabled = true;
+    wishBtn.textContent = "❤ Your wish is on its way";
+    wishMessage.textContent = "May this year bring you every happiness you deserve. ✨";
+    document.body.classList.add("wish-made");
+
+    for(let i=0;i<120;i++){
+
+        hearts.push({
+            x:canvas.width / 2,
+            y:canvas.height * .72,
+            size:9 + Math.random() * 16,
+            speed:0,
+            alpha:1,
+            burst:true,
+            sparkle:i % 3 === 0,
+            vx:(Math.random() - .5) * 8,
+            vy:-3 - Math.random() * 7
+        });
+
+    }
+
+    setTimeout(() => {
+
+        wishReveal.classList.add("show");
+        wishReveal.setAttribute("aria-hidden", "false");
+        closeWishBtn.focus();
+
+    }, 500);
+
+});
+
+closeWishBtn.addEventListener("click", () => {
+
+    wishReveal.classList.remove("show");
+    wishReveal.setAttribute("aria-hidden", "true");
+
+});
 
 function createMemoryBook(){
 
@@ -196,13 +242,32 @@ for(let i=0;i<45;i++){
 
 }
 
-function drawHeart(x,y,s,a){
+function drawHeart(x,y,s,a,sparkle){
 
     ctx.save();
 
     ctx.translate(x,y);
 
     ctx.scale(s/20,s/20);
+
+    if(sparkle){
+
+        ctx.fillStyle=`rgba(255,211,102,${a})`;
+        ctx.beginPath();
+        ctx.moveTo(0,-18);
+        ctx.lineTo(4,-4);
+        ctx.lineTo(18,0);
+        ctx.lineTo(4,4);
+        ctx.lineTo(0,18);
+        ctx.lineTo(-4,4);
+        ctx.lineTo(-18,0);
+        ctx.lineTo(-4,-4);
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+        return;
+
+    }
 
     ctx.fillStyle=`rgba(255,90,160,${a})`;
 
@@ -226,7 +291,29 @@ function animate(){
 
     hearts.forEach(h=>{
 
-        h.y-=h.speed;
+        if(h.burst){
+
+            h.x += h.vx;
+            h.y += h.vy;
+            h.vy += .12;
+            h.alpha -= .012;
+
+            if(h.alpha <= 0){
+
+                h.burst = false;
+                h.sparkle = false;
+                h.alpha = .3 + Math.random() * .7;
+                h.speed = .3 + Math.random();
+                h.y = canvas.height + 30;
+                h.x = Math.random() * canvas.width;
+
+            }
+
+        }else{
+
+            h.y-=h.speed;
+
+        }
 
         if(h.y<-30){
 
@@ -236,7 +323,7 @@ function animate(){
 
         }
 
-        drawHeart(h.x,h.y,h.size,h.alpha);
+        drawHeart(h.x,h.y,h.size,h.alpha,h.sparkle);
 
     });
 
