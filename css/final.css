@@ -339,8 +339,85 @@ filter:drop-shadow(0 0 40px rgba(255,215,0,.8));
     font-size:1.35rem;
 }
 
+.moments-section{
+    width:min(760px, 100%);
+    margin-top:45px;
+    text-align:center;
+}
+
+.moments-kicker{
+    margin:0 0 5px;
+    color:#b13e68;
+    font-size:.75rem;
+    font-weight:600;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+}
+
+.moments-section h2{
+    margin:0 0 20px;
+    color:#a43862;
+    font:700 clamp(2.3rem, 7vw, 3.5rem) 'Dancing Script',cursive;
+}
+
+.moments-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:16px;
+}
+
+.moment-card{
+    min-height:175px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    padding:18px;
+    overflow:hidden;
+    border:4px solid rgba(255,255,255,.88);
+    border-radius:5px;
+    box-shadow:0 12px 24px rgba(93,53,80,.14);
+    color:#704356;
+    transition:transform .25s ease;
+}
+
+.moment-card:hover{
+    transform:translateY(-6px) rotate(-1deg);
+}
+
+.moment-card span{
+    margin:auto;
+    color:#fff;
+    font-size:2.5rem;
+    filter:drop-shadow(0 3px 5px rgba(93,53,80,.18));
+}
+
+.moment-card p{
+    margin:0;
+    padding:8px;
+    border-radius:4px;
+    background:rgba(255,255,255,.84);
+    font-size:.78rem;
+    line-height:1.4;
+}
+
+.moment-card--one{ background:linear-gradient(145deg, #ffc9d8, #ed8bac); }
+.moment-card--two{ background:linear-gradient(145deg, #f7cf84, #ec9d76); }
+.moment-card--three{ background:linear-gradient(145deg, #cdb7ed, #a68cce); }
+
 @media (max-width:560px){
     .wish-card{ padding:40px 25px 33px; }
+
+    .moments-grid{ gap:10px; }
+
+    .moment-card{
+        min-height:135px;
+        padding:8px;
+        border-width:3px;
+    }
+
+    .moment-card span{ font-size:1.8rem; }
+
+    .moment-card p{ font-size:.65rem; }
 }
 
 body.wish-made .title{

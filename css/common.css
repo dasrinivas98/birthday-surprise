@@ -158,3 +158,76 @@ textarea{
 
 }
 
+/* Journey progress */
+
+.journey-progress{
+    position:fixed;
+    z-index:99998;
+    top:21px;
+    left:22px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:9px 12px;
+    border:1px solid rgba(255,255,255,.62);
+    border-radius:999px;
+    background:rgba(255,255,255,.6);
+    box-shadow:0 6px 18px rgba(93,53,80,.09);
+    backdrop-filter:blur(12px);
+}
+
+.journey-progress__dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#e7bfd0;
+    transition:transform .25s ease, background .25s ease;
+}
+
+.journey-progress__dot.is-complete{
+    background:#f29abc;
+}
+
+.journey-progress__dot.is-current{
+    background:#e24f82;
+    transform:scale(1.45);
+    box-shadow:0 0 0 3px rgba(226,79,130,.16);
+}
+
+.journey-progress__label{
+    margin-left:4px;
+    color:var(--theme-muted);
+    font-size:.72rem;
+    font-weight:600;
+    letter-spacing:.03em;
+    white-space:nowrap;
+}
+
+button,
+a{
+    touch-action:manipulation;
+}
+
+@media(max-width:768px){
+    .journey-progress{
+        top:13px;
+        left:13px;
+        gap:6px;
+        padding:8px 10px;
+    }
+
+    .journey-progress__dot{
+        width:6px;
+        height:6px;
+    }
+
+    .journey-progress__label{
+        font-size:.66rem;
+    }
+
+    button,
+    a{
+        min-height:44px;
+    }
+}
+

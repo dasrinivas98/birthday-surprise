@@ -77,6 +77,53 @@ window.addEventListener("load",()=>{
 
 });
 
+const journeySteps = [
+    { file: "index.html", label: "The beginning" },
+    { file: "pin.html", label: "A little secret" },
+    { file: "timeline.html", label: "Our story" },
+    { file: "gallery.html", label: "Our memories" },
+    { file: "game.html", label: "A little fun" },
+    { file: "gift.html", label: "A surprise" },
+    { file: "letter.html", label: "A love letter" },
+    { file: "cake.html", label: "Make a wish" },
+    { file: "final.html", label: "Forever & always" }
+];
+
+function addJourneyProgress(){
+
+    const currentFile = location.pathname.split("/").pop() || "index.html";
+    const currentStep = journeySteps.findIndex((step) => step.file === currentFile);
+
+    if(currentStep === -1) return;
+
+    const tracker = document.createElement("nav");
+    tracker.className = "journey-progress";
+    tracker.setAttribute("aria-label", `Journey progress: ${currentStep + 1} of ${journeySteps.length}, ${journeySteps[currentStep].label}`);
+
+    journeySteps.forEach((step, index) => {
+
+        const dot = document.createElement("span");
+        dot.className = "journey-progress__dot";
+
+        if(index < currentStep) dot.classList.add("is-complete");
+        if(index === currentStep) dot.classList.add("is-current");
+
+        dot.setAttribute("title", step.label);
+        tracker.appendChild(dot);
+
+    });
+
+    const label = document.createElement("span");
+    label.className = "journey-progress__label";
+    label.textContent = `${currentStep + 1}/${journeySteps.length}`;
+    tracker.appendChild(label);
+
+    document.body.appendChild(tracker);
+
+}
+
+addJourneyProgress();
+
 document.addEventListener("click", (event) => {
     const link = event.target.closest("a[href]");
     if (!link) return;
