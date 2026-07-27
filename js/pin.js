@@ -42,7 +42,8 @@ function checkPin() {
     if (pin === SECRET) {
 
         error.style.color = "#6cff8d";
-        error.innerHTML = "Unlocked ❤️";
+        error.innerHTML = "🎉 Unlocked! 🎉";
+        error.classList.add("unlocked");
 
         setTimeout(() => {
             window.location.href = "timeline.html";

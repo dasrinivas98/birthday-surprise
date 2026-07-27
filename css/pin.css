@@ -173,12 +173,61 @@ transform:scale(1.05);
 
 #error{
 
-height:25px;
+    height:25px;
 
-margin-top:20px;
+    margin-top:20px;
 
-color:#c65b7b;
+    color:#c65b7b;
 
-font-weight:bold;
+    font-weight:bold;
+
+}
+
+#error.unlocked{
+
+    animation:unlockBurst 1.2s ease-out;
+
+    color:#6cff8d;
+
+    font-size:24px;
+
+    text-shadow:0 0 20px rgba(108,255,141,.6),
+                0 0 40px rgba(255,93,145,.5);
+
+}
+
+@keyframes unlockBurst{
+
+    0%{
+
+        transform:scale(0.3);
+
+        opacity:0;
+
+        letter-spacing:2px;
+
+    }
+
+    30%{
+
+        transform:scale(1.4);
+
+        opacity:1;
+
+    }
+
+    60%{
+
+        transform:scale(0.9);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
 
 }
