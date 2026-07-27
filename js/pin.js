@@ -2,7 +2,7 @@ const dots = document.querySelectorAll(".pin-dots span");
 const error = document.getElementById("error");
 const buttons = document.querySelectorAll(".keypad button");
 
-const SECRET = "1808"; // Replace with your date
+const SECRET = "0103"; // Replace with your date
 
 let pin = "";
 
