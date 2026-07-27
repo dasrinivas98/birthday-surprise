@@ -187,12 +187,12 @@ transform:scale(1.05);
 
     animation:unlockBurst 1.2s ease-out;
 
-    color:#6cff8d;
+    color:#ff5d91;
 
     font-size:24px;
 
-    text-shadow:0 0 20px rgba(108,255,141,.6),
-                0 0 40px rgba(255,93,145,.5);
+    text-shadow:0 0 20px rgba(255,93,145,.6),
+                0 0 40px rgba(156,93,255,.5);
 
 }
 
