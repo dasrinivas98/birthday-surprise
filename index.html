@@ -728,6 +728,48 @@
     height:15px;
     fill:var(--rose);
   }
+  .mail-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:0.82rem;
+    color:rgba(42,10,20,0.5);
+    transition:color .2s ease, transform .2s ease;
+  }
+  .mail-link:hover{
+    color:var(--rose);
+    transform:translateY(-2px);
+  }
+  .mail-link .mail-icon{
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    background:rgba(42,10,20,0.08);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+  .mail-link .mail-icon svg{
+    width:15px;
+    height:15px;
+    fill:var(--ink-soft);
+    display:block;
+  }
+  .mail-link b{color:var(--ink); font-weight:600;}
+  .hero-email{
+    display:block;
+    margin-top:14px;
+    font-size:0.86rem;
+    color:rgba(42,10,20,0.55);
+  }
+  .hero-email a{
+    color:var(--rose);
+    font-weight:500;
+    border-bottom:1px solid rgba(194,75,92,0.3);
+    transition:border-color .2s ease;
+  }
+  .hero-email a:hover{border-color:var(--rose);}
 
   /* reveal on scroll */
   .reveal{
@@ -773,6 +815,7 @@
         <a href="#how" class="btn-ghost">See how it works →</a>
       </div>
       <div class="price-note">Made with <b>love</b> · delivered in 48 hours · unlimited edits before launch</div>
+      <div class="hero-email">Prefer email? <a href="mailto:info@stackworks.in?subject=I%20am%20interested%20in%20a%20website%2C%20let%27s%20discuss">info@stackworks.in</a></div>
     </div>
 
     <div class="mosaic">
@@ -932,6 +975,12 @@
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 1.837c-3.2 0-3.58.012-4.845.07-2.71.123-3.96 1.37-4.084 4.083-.057 1.266-.07 1.646-.07 4.847 0 3.201.014 3.581.07 4.847.124 2.711 1.372 3.958 4.084 4.082 1.265.057 1.645.07 4.845.07 3.2 0 3.58-.014 4.845-.07 2.71-.124 3.96-1.372 4.084-4.082.058-1.266.07-1.646.07-4.847 0-3.201-.012-3.581-.07-4.847-.124-2.712-1.372-3.958-4.084-4.083-1.265-.058-1.645-.07-4.845-.07zm0 3.518a4.482 4.482 0 110 8.964 4.482 4.482 0 010-8.964zm0 1.837a2.645 2.645 0 100 5.29 2.645 2.645 0 000-5.29zm5.306-2.993a1.048 1.048 0 110 2.096 1.048 1.048 0 010-2.096z"/></svg>
       </span>
       <span>Follow us on Instagram <b>@heywishora</b></span>
+    </a>
+    <a href="mailto:info@stackworks.in?subject=I%20am%20interested%20in%20a%20website%2C%20let%27s%20discuss" class="mail-link">
+      <span class="mail-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      </span>
+      <span>Email us at <b>info@stackworks.in</b></span>
     </a>
     <div class="flinks">
       <a href="#how">How it works</a>
