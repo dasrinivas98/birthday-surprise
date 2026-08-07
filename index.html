@@ -1,146 +1,667 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ❤️ — A Birthday Surprise</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 88 C25 65 5 45 5 25 C5 10 20 5 30 15 L50 35 L70 15 C80 5 95 10 95 25 C95 45 75 65 50 88Z' fill='%23C9973F'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241019;
+    --ink-soft:#34101c;
+    --paper:#FBF1E4;
+    --paper-2:#F3E4CE;
+    --gold:#C9973F;
+    --gold-soft:#E3C68C;
+    --birthday:#E0863A;
+    --anniversary:#8B3A42;
+    --valentine:#C24B5C;
+    --line: rgba(251,241,228,0.16);
+    --line-dark: rgba(36,16,25,0.14);
+  }
 
-    <meta charset="UTF-8">
+  *{margin:0;padding:0;box-sizing:border-box;}
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
+  html{scroll-behavior:smooth;}
 
-    <title>Happy Birthday ❤️</title>
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
 
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 88 C25 65 5 45 5 25 C5 10 20 5 30 15 L50 35 L70 15 C80 5 95 10 95 25 C95 45 75 65 50 88Z' fill='%23ff4f9a'/%3E%3C/svg%3E">
+  h1,h2,h3, .display{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+  }
 
-    <link rel="preconnect"
-        href="https://fonts.googleapis.com">
+  .mono{
+    font-family:'IBM Plex Mono', monospace;
+    letter-spacing:0.02em;
+  }
 
-    <link rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin>
+  a{color:inherit;text-decoration:none;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;}
 
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;700&display=swap"
-        rel="stylesheet">
+  :focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:3px;
+  }
 
-    <link rel="stylesheet"
-        href="css/style.css">
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 32px;
+  }
 
-    <link rel="stylesheet"
-        href="css/animations.css">
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(36,16,25,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-top:20px;
+    padding-bottom:20px;
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-size:1.4rem;
+    font-weight:600;
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+  }
+  .logo .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    color:var(--gold-soft);
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    font-weight:400;
+  }
+  .nav-links{
+    display:flex;
+    gap:36px;
+    font-size:0.92rem;
+  }
+  .nav-links a{opacity:0.82;transition:opacity .2s;}
+  .nav-links a:hover{opacity:1;}
+  .nav-cta{
+    background:var(--gold);
+    color:var(--ink);
+    padding:10px 20px;
+    border-radius:100px;
+    font-size:0.88rem;
+    font-weight:600;
+    transition:transform .2s ease, background .2s ease;
+    display:inline-block;
+  }
+  .nav-cta:hover{transform:translateY(-2px); background:var(--gold-soft);}
+  .nav-mobile-hide{display:flex;}
+  @media(max-width:760px){
+    .nav-mobile-hide{display:none;}
+  }
 
-    <link rel="stylesheet"
-        href="css/responsive.css">
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:96px 0 120px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:'';
+    position:absolute;
+    top:-20%;
+    right:-10%;
+    width:600px;
+    height:600px;
+    background:radial-gradient(circle, rgba(201,151,63,0.12) 0%, transparent 70%);
+    pointer-events:none;
+  }
+  .hero::after{
+    content:'';
+    position:absolute;
+    bottom:-30%;
+    left:-10%;
+    width:500px;
+    height:500px;
+    background:radial-gradient(circle, rgba(194,75,92,0.10) 0%, transparent 70%);
+    pointer-events:none;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:56px;
+    align-items:center;
+    position:relative;
+    z-index:1;
+  }
+  @media(max-width:900px){
+    .hero .wrap{grid-template-columns:1fr; gap:72px;}
+  }
 
-<link rel="stylesheet" href="css/cursor.css">
-<link rel="stylesheet" href="css/common.css?v=2">
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.76rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--gold-soft);
+    margin-bottom:22px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:22px;
+    height:1px;
+    background:var(--gold-soft);
+    display:inline-block;
+  }
 
+  .hero h1{
+    font-size:clamp(2.4rem, 4.6vw, 3.85rem);
+    line-height:1.06;
+    max-width:620px;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--gold);
+  }
+
+  .hero p.lede{
+    margin-top:26px;
+    font-size:1.12rem;
+    line-height:1.6;
+    color:rgba(251,241,228,0.78);
+    max-width:480px;
+  }
+
+  .hero-ctas{
+    margin-top:36px;
+    display:flex;
+    align-items:center;
+    gap:22px;
+    flex-wrap:wrap;
+  }
+  .btn-primary{
+    background:var(--gold);
+    color:var(--ink);
+    padding:15px 28px;
+    border-radius:100px;
+    font-weight:600;
+    font-size:0.98rem;
+    transition:transform .2s ease, background .2s ease;
+    display:inline-block;
+  }
+  .btn-primary:hover{transform:translateY(-2px); background:var(--gold-soft);}
+  .btn-ghost{
+    font-size:0.95rem;
+    font-weight:500;
+    border-bottom:1px solid var(--line);
+    padding-bottom:3px;
+    transition:border-color .2s ease, opacity .2s ease;
+  }
+  .btn-ghost:hover{border-color:var(--paper);}
+
+  .price-note{
+    margin-top:20px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.82rem;
+    color:rgba(251,241,228,0.55);
+  }
+  .price-note b{color:var(--gold-soft); font-weight:500;}
+
+  /* ---------- CARD STACK ---------- */
+  .stack{
+    position:relative;
+    height:440px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .card{
+    position:absolute;
+    width:270px;
+    height:360px;
+    border-radius:14px;
+    background:var(--paper);
+    color:var(--ink);
+    padding:26px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.55);
+    transition:transform .45s cubic-bezier(.2,.8,.2,1);
+  }
+  .card .stamp{
+    align-self:flex-end;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:1.1rem;
+  }
+  .card .occ-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    opacity:0.55;
+  }
+  .card .occ-title{
+    font-family:'Fraunces', serif;
+    font-size:1.55rem;
+    line-height:1.15;
+    margin-top:10px;
+  }
+  .card .occ-line{
+    height:1px;
+    background:var(--line-dark);
+    margin:16px 0;
+  }
+  .card .occ-detail{
+    font-size:0.84rem;
+    line-height:1.5;
+    color:rgba(36,16,25,0.68);
+  }
+
+  .card--1{ transform: rotate(-9deg) translate(-128px, 18px); z-index:1;}
+  .card--2{ transform: rotate(-2deg) translate(-2px, -22px); z-index:2;}
+  .card--3{ transform: rotate(7deg) translate(126px, 22px); z-index:1;}
+
+  .stack:hover .card--1{ transform: rotate(-13deg) translate(-150px, 8px); }
+  .stack:hover .card--3{ transform: rotate(11deg) translate(148px, 12px); }
+
+  .card--1 .stamp{background:rgba(224,134,58,0.16); color:var(--birthday);}
+  .card--2 .stamp{background:rgba(139,58,66,0.14); color:var(--anniversary);}
+  .card--3 .stamp{background:rgba(194,75,92,0.16); color:var(--valentine);}
+
+  @media(max-width:900px){
+    .stack{height:380px;}
+    .card{width:230px; height:310px; padding:20px;}
+    .card--1{transform:rotate(-9deg) translate(-84px, 14px);}
+    .card--3{transform:rotate(8deg) translate(84px, 16px);}
+  }
+  @media(max-width:520px){
+    .stack{height:340px;}
+    .card{width:200px; height:270px;}
+    .card--1{transform:rotate(-8deg) translate(-58px, 10px);}
+    .card--3{transform:rotate(8deg) translate(58px, 10px);}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .card, .btn-primary, .nav-cta, .reveal{transition:none !important;}
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:100px 0;}
+  .section-head{
+    max-width:560px;
+    margin-bottom:64px;
+  }
+  .section-head .eyebrow{color:var(--gold-soft);}
+  .section-head h2{
+    font-size:clamp(1.9rem, 3vw, 2.6rem);
+    line-height:1.15;
+  }
+  .section-head p{
+    margin-top:16px;
+    color:rgba(251,241,228,0.7);
+    font-size:1.02rem;
+    line-height:1.6;
+  }
+
+  /* ---------- JOURNEY ---------- */
+  .journey{
+    background:var(--ink-soft);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .journey-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:2px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:18px;
+    overflow:hidden;
+  }
+  @media(max-width:800px){
+    .journey-grid{grid-template-columns:1fr;}
+  }
+  .journey-step{
+    background:var(--ink-soft);
+    padding:44px 36px;
+  }
+  .journey-step .num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem;
+    color:var(--gold);
+  }
+  .journey-step h3{
+    margin-top:18px;
+    font-size:1.3rem;
+    font-weight:500;
+  }
+  .journey-step p{
+    margin-top:12px;
+    font-size:0.94rem;
+    line-height:1.6;
+    color:rgba(251,241,228,0.68);
+  }
+
+  /* ---------- MOMENTS ---------- */
+  .moments-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:20px;
+  }
+  @media(max-width:900px){
+    .moments-grid{grid-template-columns:repeat(2, 1fr);}
+  }
+  @media(max-width:520px){
+    .moments-grid{grid-template-columns:1fr;}
+  }
+  .moment-card{
+    border-radius:16px;
+    padding:30px 26px;
+    background:var(--paper);
+    color:var(--ink);
+    min-height:220px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .moment-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 24px 44px -20px rgba(0,0,0,0.5);
+  }
+  .moment-card .dot{
+    width:12px;height:12px;border-radius:50%;
+  }
+  .moment-card h3{
+    font-size:1.28rem;
+    margin-top:20px;
+    font-weight:500;
+  }
+  .moment-card p{
+    margin-top:10px;
+    font-size:0.87rem;
+    line-height:1.55;
+    color:rgba(36,16,25,0.66);
+  }
+  .moment-card:nth-child(1) .dot{background:var(--birthday);}
+  .moment-card:nth-child(2) .dot{background:var(--anniversary);}
+  .moment-card:nth-child(3) .dot{background:var(--valentine);}
+  .moment-card:nth-child(4) .dot{background:var(--gold);}
+
+  /* ---------- FOOTER CTA ---------- */
+  .final-cta{
+    text-align:center;
+    padding:120px 0 100px;
+  }
+  .final-cta h2{
+    font-size:clamp(2.1rem, 4vw, 3.2rem);
+    max-width:680px;
+    margin:0 auto;
+    line-height:1.15;
+  }
+  .final-cta h2 em{font-style:italic; color:var(--gold);}
+  .final-cta p{
+    margin-top:20px;
+    color:rgba(251,241,228,0.68);
+    font-size:1.02rem;
+  }
+  .final-cta .hero-ctas{justify-content:center; margin-top:34px;}
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:36px 0;
+  }
+  footer .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:16px;
+    font-size:0.82rem;
+    color:rgba(251,241,228,0.5);
+  }
+  footer .flinks{display:flex; gap:24px;}
+  footer a:hover{color:var(--paper);}
+
+  /* reveal on scroll */
+  .reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* floating hearts */
+  .hearts{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:0;
+    overflow:hidden;
+  }
+  .heart{
+    position:absolute;
+    bottom:-20px;
+    font-size:1.2rem;
+    opacity:0;
+    animation:floatUp linear infinite;
+  }
+  @keyframes floatUp{
+    0%{transform:translateY(0) rotate(0deg); opacity:0;}
+    10%{opacity:0.4;}
+    50%{opacity:0.25;}
+    100%{transform:translateY(-110vh) rotate(360deg); opacity:0;}
+  }
+</style>
 </head>
-
 <body>
 
-    <!-- Animated Background -->
+<div class="hearts" id="hearts"></div>
 
-    <canvas id="stars"></canvas>
+<nav>
+  <div class="wrap">
+    <div class="logo">For You <span class="tag">a birthday surprise</span></div>
+    <div class="nav-links nav-mobile-hide">
+      <a href="#journey">The Journey</a>
+      <a href="#moments">Moments</a>
+    </div>
+    <a href="demo/index.html" class="nav-cta">Open the surprise</a>
+  </div>
+</nav>
 
-    <div class="overlay"></div>
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">made with love, just for you</div>
+      <h1>Some days deserve <em>more than a card.</em></h1>
+      <p class="lede">This isn't just a website — it's a little journey through everything that makes you, you. A countdown, our story, the memories, a game, a letter, and one final wish. All in one place, waiting for you.</p>
+      <div class="hero-ctas">
+        <a href="demo/index.html" class="btn-primary">Begin the surprise ❤️</a>
+        <a href="#journey" class="btn-ghost">See what's inside →</a>
+      </div>
+      <div class="price-note">One link · <b>made only for you</b> · opens when the time is right</div>
+    </div>
 
-    <!-- Music -->
-
-    <audio id="bgMusic" loop preload="auto">
-        <source src="assets/music/birthday.mp3" type="audio/mp3">
-    </audio>
-
-    <!-- Music Button -->
-
-    <button id="musicBtn">
-        🔊
-    </button>
-
-    <!-- Main -->
-
-    <main>
-
-        <h2 class="smallTitle">
-            A Surprise For
-        </h2>
-
-        <h1 class="title">
-            My Beautiful Wife <span class="emoji">❤️</span>
-        </h1>
-
-        <p class="subtitle">
-
-            Every second with you is magical.
-
-            Tonight I made something special...
-
-        </p>
-
-        <div class="countdown">
-
-            <div>
-
-                <span id="days">00</span>
-
-                <small>Days</small>
-
-            </div>
-
-            <div>
-
-                <span id="hours">00</span>
-
-                <small>Hours</small>
-
-            </div>
-
-            <div>
-
-                <span id="minutes">00</span>
-
-                <small>Minutes</small>
-
-            </div>
-
-            <div>
-
-                <span id="seconds">00</span>
-
-                <small>Seconds</small>
-
-            </div>
-
+    <div class="stack">
+      <div class="card card--1">
+        <div>
+          <div class="occ-label">Chapter 01</div>
+          <div class="occ-title">The Beginning</div>
         </div>
+        <div class="stamp">B</div>
+        <div>
+          <div class="occ-line"></div>
+          <div class="occ-detail">A countdown to the day · a little secret waiting to be unlocked</div>
+        </div>
+      </div>
+      <div class="card card--2">
+        <div>
+          <div class="occ-label">Chapter 02</div>
+          <div class="occ-title">Our Story</div>
+        </div>
+        <div class="stamp">A</div>
+        <div>
+          <div class="occ-line"></div>
+          <div class="occ-detail">Timeline · memories · a game · a love letter · one final wish</div>
+        </div>
+      </div>
+      <div class="card card--3">
+        <div>
+          <div class="occ-label">Chapter 03</div>
+          <div class="occ-title">Forever & Always</div>
+        </div>
+        <div class="stamp">V</div>
+        <div>
+          <div class="occ-line"></div>
+          <div class="occ-detail">A private page just for you · opens on the special day</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 
-        <p id="birthdayMessage" class="celebrationText" aria-live="polite"></p>
+<section class="journey" id="journey">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">the experience</div>
+      <h2>From the first click to the final wish</h2>
+      <p>Every page is a chapter. Each one leads to the next, building up to something you'll remember.</p>
+    </div>
+    <div class="journey-grid">
+      <div class="journey-step">
+        <div class="num mono">01</div>
+        <h3>The Countdown</h3>
+        <p>It all starts with a countdown — a little anticipation before the surprise unlocks on the special day.</p>
+      </div>
+      <div class="journey-step">
+        <div class="num mono">02</div>
+        <h3>The Story</h3>
+        <p>Our timeline, our memories, a game we can play, and a gift that's been waiting to be opened.</p>
+      </div>
+      <div class="journey-step">
+        <div class="num mono">03</div>
+        <h3>The Wish</h3>
+        <p>A love letter, a cake to cut, and a final page that says everything words sometimes can't.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <button id="beginBtn">
+<section id="moments">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">what's inside</div>
+      <h2>Little moments, all in one place</h2>
+      <p>Each page was built around a memory — the ones that matter, the ones we'll never forget.</p>
+    </div>
+    <div class="moments-grid">
+      <div class="moment-card reveal">
+        <div class="dot"></div>
+        <div>
+          <h3>Our Timeline</h3>
+          <p>Every milestone, every memory — the story of us, told page by page.</p>
+        </div>
+      </div>
+      <div class="moment-card reveal">
+        <div class="dot"></div>
+        <div>
+          <h3>The Gallery</h3>
+          <p>Photos of the moments we've shared — the ones that made us smile.</p>
+        </div>
+      </div>
+      <div class="moment-card reveal">
+        <div class="dot"></div>
+        <div>
+          <h3>A Little Fun</h3>
+          <p>A game, a gift, a letter — small surprises tucked between the pages.</p>
+        </div>
+      </div>
+      <div class="moment-card reveal">
+        <div class="dot"></div>
+        <div>
+          <h3>One Final Wish</h3>
+          <p>A cake to cut, a wish to make, and a page that says it all.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-            Begin Your Surprise <span class="emoji">❤️</span>
+<section class="final-cta">
+  <div class="wrap">
+    <h2 class="reveal">This was made <em>just for you.</em></h2>
+    <p class="reveal">Every page, every word, every little detail. Ready when you are.</p>
+    <div class="hero-ctas reveal">
+      <a href="demo/index.html" class="btn-primary">Open your surprise ❤️</a>
+    </div>
+  </div>
+</section>
 
-        </button>
+<footer>
+  <div class="wrap">
+    <div>Made with ❤️ · For you, always</div>
+    <div class="flinks">
+      <a href="#journey">The Journey</a>
+      <a href="#moments">Moments</a>
+      <a href="demo/index.html">Open the surprise</a>
+    </div>
+  </div>
+</footer>
 
-    </main>
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-    <!-- Floating Hearts -->
-
-    <div id="hearts"></div>
-
-    <script src="js/stars.js"></script>
-
-    <script src="js/countdown.js"></script>
-
-    <script src="js/music.js"></script>
-
-    <script src="js/app.js"></script>
-
-<div id="cursor"></div>
-
-<script src="js/cursor.js"></script>
-
-<script src="js/common.js?v=2"></script>
+  // Floating hearts
+  const heartsContainer = document.getElementById('hearts');
+  const heartEmojis = ['❤️', '💛', '💕', '💖', '✨'];
+  for(let i = 0; i < 15; i++){
+    const heart = document.createElement('span');
+    heart.className = 'heart';
+    heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+    heart.style.left = Math.random() * 100 + '%';
+    heart.style.fontSize = (0.8 + Math.random() * 1.2) + 'rem';
+    heart.style.animationDuration = (8 + Math.random() * 12) + 's';
+    heart.style.animationDelay = (Math.random() * 10) + 's';
+    heartsContainer.appendChild(heart);
+  }
+</script>
 
 </body>
-
 </html>
