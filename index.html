@@ -771,6 +771,142 @@
   }
   .hero-email a:hover{border-color:var(--rose);}
 
+  /* ---------- CONTACT MODAL ---------- */
+  .contact-modal{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:100;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(42,10,20,0.45);
+    backdrop-filter:blur(4px);
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .3s ease;
+  }
+  .contact-modal.open{
+    opacity:1;
+    pointer-events:auto;
+  }
+  .contact-modal-box{
+    background:var(--paper);
+    border-radius:20px;
+    padding:40px 36px;
+    max-width:420px;
+    width:calc(100% - 48px);
+    position:relative;
+    box-shadow:0 40px 80px -20px rgba(42,10,20,0.45);
+    transform:translateY(20px) scale(0.96);
+    transition:transform .35s cubic-bezier(.2,.8,.2,1);
+  }
+  .contact-modal.open .contact-modal-box{
+    transform:translateY(0) scale(1);
+  }
+  .contact-modal-close{
+    position:absolute;
+    top:16px;
+    right:16px;
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    background:rgba(42,10,20,0.06);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:0.9rem;
+    color:rgba(42,10,20,0.5);
+    transition:background .2s ease, color .2s ease;
+  }
+  .contact-modal-close:hover{
+    background:rgba(42,10,20,0.12);
+    color:var(--ink);
+  }
+  .contact-modal-box h3{
+    font-size:1.5rem;
+    font-weight:500;
+    margin-bottom:10px;
+  }
+  .contact-modal-box .modal-sub{
+    font-size:0.92rem;
+    color:rgba(42,10,20,0.6);
+    line-height:1.5;
+    margin-bottom:26px;
+  }
+  .contact-options{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .contact-option{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:16px 18px;
+    cursor:pointer;
+    transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .contact-option:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 28px -10px rgba(42,10,20,0.18);
+    border-color:var(--rose-soft);
+  }
+  .contact-option .co-icon{
+    width:44px;
+    height:44px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+  .contact-option .co-icon svg{
+    width:20px;
+    height:20px;
+    display:block;
+  }
+  .co-wa .co-icon{background:rgba(37,211,102,0.15);}
+  .co-wa .co-icon svg{fill:#25D366;}
+  .co-ig .co-icon{background:linear-gradient(45deg, rgba(245,133,41,0.15), rgba(221,42,123,0.15), rgba(129,52,175,0.15));}
+  .co-ig .co-icon svg{fill:#DD2A7B;}
+  .co-mail .co-icon{background:rgba(194,75,92,0.12);}
+  .co-mail .co-icon svg{fill:var(--rose);}
+  .contact-option h4{
+    font-size:1rem;
+    font-weight:600;
+    margin-bottom:2px;
+  }
+  .contact-option p{
+    font-size:0.82rem;
+    color:rgba(42,10,20,0.58);
+    line-height:1.4;
+  }
+  .contact-option .co-arrow{
+    margin-left:auto;
+    color:var(--rose);
+    font-size:1.1rem;
+    opacity:0;
+    transform:translateX(-6px);
+    transition:opacity .25s ease, transform .25s ease;
+  }
+  .contact-option:hover .co-arrow{
+    opacity:1;
+    transform:translateX(0);
+  }
+  .modal-note{
+    margin-top:18px;
+    font-size:0.76rem;
+    color:rgba(42,10,20,0.45);
+    text-align:center;
+    font-family:'IBM Plex Mono', monospace;
+  }
+
   /* reveal on scroll */
   .reveal{
     opacity:0;
@@ -800,7 +936,7 @@
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 1.837c-3.2 0-3.58.012-4.845.07-2.71.123-3.96 1.37-4.084 4.083-.057 1.266-.07 1.646-.07 4.847 0 3.201.014 3.581.07 4.847.124 2.711 1.372 3.958 4.084 4.082 1.265.057 1.645.07 4.845.07 3.2 0 3.58-.014 4.845-.07 2.71-.124 3.96-1.372 4.084-4.082.058-1.266.07-1.646.07-4.847 0-3.201-.012-3.581-.07-4.847-.124-2.712-1.372-3.958-4.084-4.083-1.265-.058-1.645-.07-4.845-.07zm0 3.518a4.482 4.482 0 110 8.964 4.482 4.482 0 010-8.964zm0 1.837a2.645 2.645 0 100 5.29 2.645 2.645 0 000-5.29zm5.306-2.993a1.048 1.048 0 110 2.096 1.048 1.048 0 010-2.096z"/></svg>
       </a>
     </div>
-    <a href="https://wa.me/910000000000?text=I%20am%20interested%20in%20a%20website%2C%20let%27s%20discuss" target="_blank" rel="noopener" class="nav-cta">Start yours</a>
+    <a href="#" class="nav-cta" data-contact>Start yours</a>
   </div>
 </nav>
 
@@ -811,7 +947,7 @@
       <h1>Every <em>love story</em><br>deserves <span class="script">a gift</span> of its own.</h1>
       <p class="lede">We craft one-of-a-kind digital gifts — websites that hold your words, your photos, your memories. For birthdays, anniversaries, Valentine's Day, and every day that made you two, you.</p>
       <div class="hero-ctas">
-        <a href="https://wa.me/910000000000?text=I%20am%20interested%20in%20a%20website%2C%20let%27s%20discuss" target="_blank" rel="noopener" class="btn-primary">Gift a story ❤️</a>
+        <a href="#" class="btn-primary" data-contact>Gift a story ❤️</a>
         <a href="#how" class="btn-ghost">See how it works →</a>
       </div>
       <div class="price-note">Made with <b>love</b> · delivered in 48 hours · unlimited edits before launch</div>
@@ -962,7 +1098,7 @@
     <h2 class="reveal">Some days shouldn't get <em>a generic card.</em></h2>
     <p class="reveal">Tell us what the day is, and who it's for. We'll wrap it from there.</p>
     <div class="hero-ctas reveal">
-      <a href="https://wa.me/910000000000?text=I%20am%20interested%20in%20a%20website%2C%20let%27s%20discuss" target="_blank" rel="noopener" class="btn-primary">Gift a story ❤️</a>
+      <a href="#" class="btn-primary" data-contact>Gift a story ❤️</a>
     </div>
   </div>
 </section>
@@ -1015,7 +1151,70 @@
     heartsContainer.appendChild(heart);
   }
 
+  // Contact modal
+  const contactModal = document.getElementById('contactModal');
+  const contactTriggers = document.querySelectorAll('[data-contact]');
+  const contactClose = document.querySelector('.contact-modal-close');
+  if(contactModal){
+    contactTriggers.forEach(trigger=>{
+      trigger.addEventListener('click', (e)=>{
+        e.preventDefault();
+        contactModal.classList.add('open');
+      });
+    });
+    contactClose.addEventListener('click', ()=>{
+      contactModal.classList.remove('open');
+    });
+    contactModal.addEventListener('click', (e)=>{
+      if(e.target === contactModal){
+        contactModal.classList.remove('open');
+      }
+    });
+  }
+
 </script>
+
+<!-- Contact Modal -->
+<div class="contact-modal" id="contactModal">
+  <div class="contact-modal-box">
+    <button class="contact-modal-close" aria-label="Close">✕</button>
+    <h3>Let's make it happen 💝</h3>
+    <p class="modal-sub">Pick whichever way is easiest for you — we'll take it from there.</p>
+    <div class="contact-options">
+      <a href="https://wa.me/910000000000?text=I%20am%20interested%20in%20a%20website%2C%20let%27s%20discuss" target="_blank" rel="noopener" class="contact-option co-wa">
+        <span class="co-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </span>
+        <div>
+          <h4>WhatsApp</h4>
+          <p>Fastest way to reach us — chat directly</p>
+        </div>
+        <span class="co-arrow">→</span>
+      </a>
+      <a href="https://instagram.com/heywishora" target="_blank" rel="noopener" class="contact-option co-ig">
+        <span class="co-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 1.837c-3.2 0-3.58.012-4.845.07-2.71.123-3.96 1.37-4.084 4.083-.057 1.266-.07 1.646-.07 4.847 0 3.201.014 3.581.07 4.847.124 2.711 1.372 3.958 4.084 4.082 1.265.057 1.645.07 4.845.07 3.2 0 3.58-.014 4.845-.07 2.71-.124 3.96-1.372 4.084-4.082.058-1.266.07-1.646.07-4.847 0-3.201-.012-3.581-.07-4.847-.124-2.712-1.372-3.958-4.084-4.083-1.265-.058-1.645-.07-4.845-.07zm0 3.518a4.482 4.482 0 110 8.964 4.482 4.482 0 010-8.964zm0 1.837a2.645 2.645 0 100 5.29 2.645 2.645 0 000-5.29zm5.306-2.993a1.048 1.048 0 110 2.096 1.048 1.048 0 010-2.096z"/></svg>
+        </span>
+        <div>
+          <h4>Instagram DM</h4>
+          <p>DM us @heywishora anytime</p>
+        </div>
+        <span class="co-arrow">→</span>
+      </a>
+      <a href="mailto:info@stackworks.in?subject=I%20am%20interested%20in%20a%20website%2C%20let%27s%20discuss" class="contact-option co-mail">
+        <span class="co-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </span>
+        <div>
+          <h4>Email</h4>
+          <p>Write to us at info@stackworks.in</p>
+        </div>
+        <span class="co-arrow">→</span>
+      </a>
+    </div>
+    <div class="modal-note">typically responds within a few hours ♡</div>
+  </div>
+</div>
 
 </body>
 </html>
