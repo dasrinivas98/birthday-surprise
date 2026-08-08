@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Anniversary — [X] Years of Us</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="gate" id="gate">
+  <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Open your surprise">
+    <div class="flap"></div>
+    <div class="seal">💌</div>
+  </div>
+  <p class="hint">tap the envelope</p>
+</div>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <div class="brand">Us<span>,</span> Two</div>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="our-story.html">Our Story</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="letter.html">Love Letter</a>
+      <a href="celebrate.html">Celebrate</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="hero">
+  <div class="wrap">
+    <div class="eyebrow">celebrating [X] years of love</div>
+    <h1>Happy Anniversary,<br>Riya 💕</h1>
+    <p class="lede">Veer made you a small website, because [X] years of marriage deserves more than a card. Take your time — there's a bit more on every page.</p>
+    <div class="hero-ctas">
+      <a href="our-story.html" class="btn btn-primary">Read our story →</a>
+      <a href="gallery.html" class="btn btn-outline">See the photos</a>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat">
+        <div class="num" data-target="5">0</div>
+        <div class="lbl">years of marriage</div>
+      </div>
+      <div class="stat">
+        <div class="num" data-target="1825">0</div>
+        <div class="lbl">days of forever</div>
+      </div>
+      <div class="stat">
+        <div class="num" data-target="1">0</div>
+        <div class="lbl">soulmate</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<footer class="site-footer">
+  Made with love by Veer · [X] Years and Counting
+</footer>
+
+<script>
+  // edit the data-target attributes above to your real numbers
+  function animateCount(el, target){
+    const dur = 1400, start = performance.now();
+    function step(now){
+      const p = Math.min((now-start)/dur, 1);
+      const eased = 1 - Math.pow(1-p, 3);
+      el.textContent = Math.round(eased*target);
+      if(p<1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  function openGate(){
+    const envelope = document.getElementById('envelope');
+    const gate = document.getElementById('gate');
+    const hero = document.getElementById('hero');
+    envelope.classList.add('open');
+    setTimeout(()=>{
+      gate.classList.add('dismissed');
+      hero.classList.add('revealed');
+      document.querySelectorAll('.stat .num').forEach(el=>{
+        animateCount(el, parseInt(el.dataset.target,10));
+      });
+    }, 500);
+  }
+
+  const envelope = document.getElementById('envelope');
+  envelope.addEventListener('click', openGate);
+  envelope.addEventListener('keydown', (e)=>{
+    if(e.key==='Enter' || e.key===' '){ e.preventDefault(); openGate(); }
+  });
+
+  // respect reduced motion: skip the gate entirely
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    document.getElementById('gate').classList.add('dismissed');
+    document.getElementById('hero').classList.add('revealed');
+    document.querySelectorAll('.stat .num').forEach(el=>{ el.textContent = el.dataset.target; });
+  }
+</script>
+
+</body>
+</html>

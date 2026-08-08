@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Celebrating [X] Years — Riya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <div class="brand">Us<span>,</span> Two</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="our-story.html">Our Story</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="letter.html">Love Letter</a>
+      <a href="celebrate.html" class="active">Celebrate</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-head">
+  <div class="eyebrow">a toast to [X] years</div>
+  <h1>Here's to <span class="script">Us</span></h1>
+  <p>[X] years of marriage, and Veer would still choose Riya. Here are just a few reasons why this journey with Riya is Veer's favorite story.</p>
+</div>
+
+<div class="reasons-carousel">
+  <div class="reason-card">
+    <p id="reasonText">The way Riya has loved Veer through [X] years of marriage — the good days, the hard days, and all the beautiful in-between.</p>
+  </div>
+  <div class="reason-nav">
+    <button id="prevReason" aria-label="Previous reason">←</button>
+    <div class="reason-dots" id="reasonDots"></div>
+    <button id="nextReason" aria-label="Next reason">→</button>
+  </div>
+</div>
+
+<div class="surprise-zone">
+  <button class="btn btn-primary" id="surpriseBtn">✨ One More Surprise</button>
+  <div id="surpriseMessage"></div>
+</div>
+
+<footer class="site-footer">
+  Made with love by Veer · [X] Years of Marriage and Counting
+</footer>
+
+<script>
+  // edit these five reasons to your own
+  const reasons = [
+    "The way Riya has loved Veer through [X] years of marriage — the good days, the hard days, and all the beautiful in-between.",
+    "How Veer still holds Riya's hand like he did on their wedding day, even after all this time.",
+    "The way Riya knows Veer's coffee order, his dreams, and his heart better than anyone else ever could.",
+    "That one inside joke from Veer and Riya's first date that still makes them both laugh after [X] years.",
+    "How Riya makes every anniversary feel like the first time — still nervous, still excited, still so in love."
+  ];
+  let idx = 0;
+  const reasonText = document.getElementById('reasonText');
+  const dotsWrap = document.getElementById('reasonDots');
+
+  reasons.forEach((_, i)=>{
+    const d = document.createElement('span');
+    if(i===0) d.classList.add('active');
+    dotsWrap.appendChild(d);
+  });
+
+  function render(){
+    reasonText.textContent = reasons[idx];
+    [...dotsWrap.children].forEach((d,i)=> d.classList.toggle('active', i===idx));
+  }
+  document.getElementById('prevReason').addEventListener('click', ()=>{
+    idx = (idx-1+reasons.length) % reasons.length; render();
+  });
+  document.getElementById('nextReason').addEventListener('click', ()=>{
+    idx = (idx+1) % reasons.length; render();
+  });
+
+  const btn = document.getElementById('surpriseBtn');
+  const msg = document.getElementById('surpriseMessage');
+  const emojis = ['💕','✨','🎉','💐','🥂','💖','🌹','💫'];
+
+  const surpriseMessages = [
+    '[X] years of marriage and Veer would still say "yes" to Riya all over again. Happy Anniversary, my love.',
+    'Here\'s to [X] years of "I love you"s, "I\'m sorry"s, and "let\'s do it again tomorrow"s. Veer loves Riya more each year.',
+    'Riya is Veer\'s favorite "yes" of all time. Thank you for [X] years of beautiful marriage.',
+    'Veer would choose Riya in every lifetime, in every universe, in every version of forever. Happy [X]th Anniversary.',
+    'Every love story is beautiful, but Veer and Riya\'s — [X] years of marriage and still going strong — is Veer\'s favorite. Here\'s to forever.'
+  ];
+
+  btn.addEventListener('click', () => {
+    msg.classList.add('show');
+    msg.textContent = surpriseMessages[Math.floor(Math.random() * surpriseMessages.length)];
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduceMotion){
+      for(let i=0;i<20;i++){
+        setTimeout(()=>{
+          const el = document.createElement('div');
+          el.className = 'floaty';
+          el.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+          el.style.left = Math.random()*100 + 'vw';
+          el.style.setProperty('--drift', (Math.random()*200-100)+'px');
+          document.body.appendChild(el);
+          setTimeout(()=>el.remove(), 3500);
+        }, i*70);
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

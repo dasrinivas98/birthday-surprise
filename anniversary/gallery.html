@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Our Memories — [X] Years of Marriage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <div class="brand">Us<span>,</span> Two</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="our-story.html">Our Story</a>
+      <a href="gallery.html" class="active">Gallery</a>
+      <a href="letter.html">Love Letter</a>
+      <a href="celebrate.html">Celebrate</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-head">
+  <div class="eyebrow">[X] years of memories</div>
+  <h1>Our <span class="script">Marriage</span> Gallery</h1>
+  <p>Every photo tells a story of Veer and Riya's journey together. From the day they said "I do" to this beautiful [X] years of marriage — these are the moments that made it all worth it.</p>
+</div>
+
+<div class="wrap gallery-grid" id="galleryGrid">
+  <div class="photo-slot" data-caption="The day it all began — Veer and Riya's first message 💬">First Message</div>
+  <div class="photo-slot" data-caption="Nervous but excited — Veer and Riya's first date ☕">First Date</div>
+  <div class="photo-slot" data-caption="Veer and Riya's first adventure together 🚗">First Adventure</div>
+  <div class="photo-slot" data-caption="The "yes" that started Veer and Riya's everything 💍">The Proposal</div>
+  <div class="photo-slot" data-caption="The day Veer and Riya became husband and wife 💒">Wedding Day</div>
+  <div class="photo-slot" data-caption="Golden hour on Veer and Riya's [X] year anniversary 🌅">Anniversary Sunset</div>
+  <div class="photo-slot" data-caption="Dancing under the stars — Veer and Riya's first dance ✨">Moonlight Dance</div>
+  <div class="photo-slot" data-caption="The smile that still makes Veer's heart skip ❤️">That Smile</div>
+  <div class="photo-slot" data-caption="[X] years of Veer and Riya's memories and counting 🌌">Years of Us</div>
+</div>
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <div class="photo-slot" id="lightboxPhoto">+ Photo</div>
+    <div class="lightbox-cap" id="lightboxCap">Add a caption</div>
+    <span class="lightbox-close" id="lightboxClose">close ✕</span>
+  </div>
+</div>
+
+<footer class="site-footer">
+  Made with love by Veer · [X] Years of Marriage and Counting
+</footer>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxCap = document.getElementById('lightboxCap');
+  const lightboxClose = document.getElementById('lightboxClose');
+
+  document.querySelectorAll('#galleryGrid .photo-slot').forEach(slot=>{
+    slot.addEventListener('click', ()=>{
+      lightboxCap.textContent = slot.dataset.caption || 'Add a caption';
+      lightbox.classList.add('show');
+    });
+  });
+
+  function closeLightbox(){ lightbox.classList.remove('show'); }
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e)=>{ if(e.target===lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLightbox(); });
+</script>
+
+</body>
+</html>
